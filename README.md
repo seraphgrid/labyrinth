@@ -9,7 +9,7 @@ will be tested in: `ratpoison`
 
 `sxhkd` |
 `hyprctl/dwmc/etc` |
-`python`| 
+`python` | 
 `warpd` 
 
 pro-tip: use `sed` if you want to make similar but sweeping changes to files.
