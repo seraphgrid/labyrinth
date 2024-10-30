@@ -1,0 +1,99 @@
+# labyrinth 
+i 
+ sh ~/labyrinth -i
+
+n
+ sh ~/labyrinth -n
+
+a
+ sh ~/labyrinth -a 
+ 
+s
+ sh ~/labyrinth -S 
+
+S
+ sh ~/labyrinth -s 
+
+Escape
+ sh ~/labyrinth -v 
+
+I
+ sh ~/labyrinth -I 
+
+d
+ sh ~/labyrinth -d 
+
+# dwm
+ctrl + w ; {1,2,3,4,5,6,7,8,9} 
+ dwmc setlayoutex {1,2,3,4,5,6,7,8,9}
+
+m ; {1-9} 
+ dwmc tagex {0-9}
+
+M
+ dwmc togglemax
+
+{1-9} 
+ dwmc view {0-9}
+
+{j,k}
+ dwmc focusstack {+,-}1
+
+{J,K}
+ dwmc {pushdown,pushup}
+
+# resize window left and right
+{h,l}
+ dwmc setmfact {-,+}0.05
+
+Return
+ dwmc zoom
+
+W 
+ dwmc togglebar
+
+# kill windows. pleae. 
+c
+ dwmc killclient
+
+q
+ dwmc killclient
+
+s
+ redshift -O 3000
+
+S 
+ redshift -x
+
+# warpd
+
+f
+ warpd --hint
+
+v
+ warpd --normal
+
+# videowarez.
+p
+ nomacs
+ 
+u
+ alacritty 
+
+V
+ mpv ~/Videos/ 
+
+C
+ handbrake
+
+I
+ sh ~/labyrinth -I 
+
+b
+ python ~/cmdlaunch.py "qutebrowser"
+
+e
+ kdenlive
+
+shift + slash
+ alacritty -e nvim ~/.config/sxhkd/video

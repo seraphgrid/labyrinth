@@ -1,0 +1,190 @@
+# labyrinth
+
+alt + q ; n 
+# network
+ sh ~/labyrinth -n
+
+alt + n   
+# normal
+ sh ~/labyrinth -v  
+
+alt + q ; d 
+# debug
+ sh ~/labyrinth -d 
+
+alt + q ; a      
+# audio
+ sh ~/labyrinth -a  
+
+alt + q ; V
+# video 
+ sh ~/labyrinth -V
+
+alt + Escape
+# non-vim insert 
+ sh ~/labyrinth -i
+
+alt + q ; y
+# sec
+ sh ~/labyrinth -y  
+
+alt + grave
+# normal
+ sh ~/labyrinth -v
+
+alt + q ; i 
+# non-vim insert
+ sh ~/labyrinth -i
+
+ctrl + bracketleft
+ sh ~/labyrinth -v
+
+alt + q ; t
+# TSK
+ sh ~/labyrinth -t 
+
+alt + q ; S 
+# show current mode status
+ sh ~/labyrinth -H 
+
+alt + q ; s  
+# SYS
+ sh ~/labyrinth -s 
+ 
+alt + q ; y
+ sh ~/labyrinth -V 
+
+alt + shift + o
+ dwmc zoom
+
+alt + q ; f
+ warpd --hint
+
+alt + q ; u
+ warpd --hint
+
+alt + q ; v
+ warpd --normal
+
+alt + Tab 
+ rofi -show window
+
+alt + F1 
+ rofi -show drun
+
+alt + q ; o
+ alacritty 
+      
+alt + q ; c 
+ dwmc killclient
+
+alt + q ; q 
+ dwmc killclient
+
+alt + q ; O 
+ dwmc zoom
+
+alt + q ; {j,k}
+ dwmc focusstack {+,-}1
+
+alt + q ; {h,l}
+ dwmc setmfact {-,+}0.05
+
+alt + q ; N 
+ dwmc togglebar
+
+alt + q ; {1-9}
+ dwmc view {0-9}
+
+alt + q ; Return
+ dwmc zoom
+ 
+alt + q ; O
+ dwmc zoom  
+
+alt + {j,k}
+ dwmc focusstack {+,-}1
+
+alt + q ; o
+ dwmc focusstack +1
+
+alt + q ; 0
+ dwmc killclient
+
+alt + bracketleft
+ dwmc killclient
+
+alt + q ; {J,K}
+ dwmc {pushdown,pushup} 
+
+alt + q ; M
+ dwmc togglemax
+ 
+alt + q ; m ; {1-9}
+ dwmc tagex {0-9}
+
+alt + q ; K 
+ alacritty -e "cd ~/suckless/widow2/ && make && sudo make clean install" 
+
+alt + q ; e
+ alacritty -e nvim 
+   
+Print 
+ spectacle -r
+
+shift + Print
+ spectacle -f
+      
+alt + v
+ exec /home/hexe/Applications/Chatbox-1.3.12-x86_64_310e5363068bf30d5f61cba692ff230f.AppImage --no-sandbox %U
+
+alt + q ; c ; R
+ mpc repeat on 
+
+alt + q ; c ; r
+ mpc repeat off 
+
+alt + q ; c ; S
+ mpc single on 
+
+alt + q ; c ; s
+ mpc single off
+
+alt + q ; c ; p
+ mpc toggle 
+
+alt + q ; c ; u
+ alacritty --hold -e mpc update 
+
+alt + q ; c ; c 
+ notify-send "$(mpc current)" 
+
+alt + q ; r
+ goodvibes
+
+alt + q ; b
+ qutebrowser 
+
+alt + q ; F 
+ alacritty -e fff
+
+alt + q ; d
+ gnome-dictionary
+
+alt + q ; s
+ redshift -O 3000
+
+alt + q ; S
+ redshift -x
+
+alt + q ; x 
+ xkill
+
+alt + q ; w   
+ dunstctl close-all
+
+alt + q ; W 
+ dunstctl history-pop
+
+ctrl + shift + slash
+ alacritty -e nvim ~/.config/sxhkd/vi

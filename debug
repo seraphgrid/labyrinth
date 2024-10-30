@@ -1,0 +1,83 @@
+# dwm 
+m ; {1-9} 
+ dwmc tagex {0-9}
+
+M
+ dwmc togglemax
+
+{1-9} 
+ dwmc view {0-9}
+
+{j,k}
+ dwmc focusstack {+,-}1
+
+{J,K}
+ dwmc {pushdown,pushup}
+
+{h,l}
+ dwmc setmfact {-,+}0.05
+
+Return
+ dwmc zoom
+
+W 
+ dwmc togglebar
+
+q
+ dwmc killclient
+
+# warpd
+f
+ warpd --hint
+
+v
+ warpd --normal
+
+# tools
+u
+ alacritty 
+ 
+b 
+ alacritty -e journalctl -xb --follow
+
+d
+ alacritty --hold -e dmesg | less
+
+ctrl + m 
+ alacritty --hold -e sudo htop 
+
+m ; 0
+ python ~/cmdlaunch.py "sudo systemctl status" 
+
+L
+ python ~/cmdlaunch.py "lsof | grep" 
+
+T
+ alacritty -e tail /var/log/syslog
+
+Escape
+ sh ~/labyrinth -v
+
+t
+ sh ~/labyrinth -t
+
+a
+ sh ~/labyrinth -a
+
+V
+ sh ~/labyrinth -V
+
+ctrl + s
+ sh ~/labyrinth -H
+
+i
+ sh ~/labyrinth -i
+
+I
+ sh ~/labyrinth -I
+
+y
+ sh ~/labyrinth -y
+
+shift + slash
+ alacritty -e nvim ~/.config/sxhkd/debug
