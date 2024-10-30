@@ -16,4 +16,4 @@ after `ratpoison`:
 `awesome`
 `bspwm`
 
--# jesus.©heist man... how maany are there.
+jesus.©heist man... how maany are there.
