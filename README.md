@@ -12,12 +12,18 @@ will be tested in: `ratpoison`
 `python`| 
 `warpd` 
 
-pro-tip: use `sed` if you want to make similar but sweeping changes to files. `s/nvim/emacs -nw/g` is a nice example. 
+pro-tip: use `sed` if you want to make similar but sweeping changes to files.
 
 ## installation
 
-`cp -v ~/.config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc_bak`
-
-`cp -rv sxhkdrcs/* ~/.config/sxhkd/` 
+`cp -rv sxhkdrcs/* [sxhkd_dir]` 
 
 `labyrinth -v`
+
+## autostarting
+
+`cp -v sxhkdrc sxhkdrc_bak`
+
+`cp -v vim sxhkdrc`
+
+`sxhkd`
