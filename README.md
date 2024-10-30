@@ -1,5 +1,5 @@
 # labyrinth
-labyrinth is a proof-of-concept for a modal desktop environment interface. soon you will be able to unplug your mouse and actually forget its unplugged.   
+labyrinth is a proof-of-concept for a modal desktop environment interface.
 
 currently testing in: `dwm`
 
