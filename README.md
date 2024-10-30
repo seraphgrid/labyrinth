@@ -1,5 +1,5 @@
 # labyrinth
-labyrinth is a proof-of-concept for a modal desktop environment interface, built with typists and power users in mind, and deceptively minimal. 
+labyrinth is a proof-of-concept for a modal desktop environment interface, built with typists and power users in mind, albeit deceptively minimal. 
 
 currently testing in: `dwm`
 
