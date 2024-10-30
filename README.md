@@ -20,4 +20,4 @@ pro-tip: use `sed` if you want to make similar but sweeping changes to files. `s
 
 `cp -v sxhkdrc sxhkdrc_bak`
 
-`sh labyrinth -v`
+`labyrinth -v`
