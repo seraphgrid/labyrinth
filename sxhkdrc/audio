@@ -1,0 +1,110 @@
+# labyrinth
+V
+ sh ~/labyrinth -V
+
+alt + n
+ sh ~/labyrinth -v
+
+I
+ sh ~/labyrinth -I
+
+i
+ sh ~/labyrinth -i
+
+t
+ sh ~/labyrinth -t
+
+n
+ sh ~/labyrinth -n
+
+d
+ sh ~/labyrinth -d 
+
+# dwm 
+m ; {1-9} 
+ dwmc tagex {0-9}
+
+M
+ dwmc togglemax
+
+{1-9} 
+ dwmc view {0-9}
+
+{j,k}
+ dwmc focusstack {+,-}1
+
+{J,K}
+ dwmc {pushdown,pushup}
+
+{h,l}
+ dwmc setmfact {-,+}0.05
+
+{o,Return}
+ dwmc zoom
+
+N
+ dwmc togglebar
+q
+ dwmc killclient
+
+w
+ dunstctl close-all
+
+W
+ dunstctl history-pop
+
+# warpd
+u
+ warpd --hint
+
+f
+ warpd --hint
+
+v
+ warpd --normal
+
+# audiosoftz.
+a ; {1,2,3}
+ {alacritty -e ncmpcpp,env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U,jamesdsp}
+
+e 
+ alacritty -e sudo nvim /usr/share/pipewire/pipewire.conf 
+
+D
+ bitwig-studio
+
+grave 
+ nicotine
+
+A ; {1-3} 
+ {pavucontrol,friture,alacritty -e alsamixer}
+
+{r,R} 
+ mpc repeat {on,off}	
+
+{s,S} 
+ mpc single {on,off}	
+
+p 
+ mpc toggle	
+
+C 
+ notify-send "$(mpc current)" 
+
+U 
+ mpc update
+
+e
+ alacritty -e sudo nvim /usr/share/pipewire/pipewire.conf
+
+ctrl + e 
+ goodvibes
+
+T
+ blueman-manager
+
+Escape
+ sh ~/labyrinth -v
+
+shift + slash
+ alacritty -e nvim ~/.config/sxhkd/audio

@@ -1,0 +1,127 @@
+# labyrinth 
+alt + n
+ sh ~/labyrinth -v
+ 
+Escape
+ sh ~/labyrinth -v
+
+i
+ sh ~/labyrinth -i 
+
+alt + n
+ sh ~/labyrinth -i 
+
+t
+ sh ~/labyrinth -t
+
+a
+ sh ~/labyrinth -a 
+    
+I
+ sh ~/labyrinth -I 
+
+d
+ sh ~/labyrinth -d 
+
+# dwm 
+m ; {1-9} 
+ dwmc tagex {0-9}
+
+M
+ dwmc togglemax
+
+{1-9} 
+ dwmc view {0-9}
+
+{j,k}
+ dwmc focusstack {+,-}1
+
+{J,K}
+ dwmc {pushdown,pushup}
+
+{h,l}
+ dwmc setmfact {-,+}0.05
+
+{o,Return}
+ dwmc zoom
+
+b 
+ dwmc togglebar
+
+q
+ dwmc killclient
+
+u
+ warpd --hint
+
+f
+ warpd --hint
+
+v
+ warpd --normal
+
+# netsoftz  
+ctrl + p
+ alacritty --hold -e ping 9.9.9.9 -c 8 
+
+V
+ riseup-vpn
+
+ctrl + n
+ alacritty --hold -e netstat -tuln
+
+p 
+ python ~/cmdlaunch.py nmap -sP
+
+ctrl + N 
+ alacritty -e sudo bandwich
+
+n
+ dunstctl close-all
+
+N
+ dunstctl history-pop
+
+w
+ wireshark
+
+ctrl + {i,I}
+ alacritty -e --hold sudo ifconfig wlp2s0 {up,down}
+
+alt + I
+ alacritty --hold -e ifconfig -a 
+
+parenleft
+ alacritty --hold -e dig @127.0.0.1 duckduckgo.com 
+
+bracketleft
+ alacritty ---hold -e sudo nvim /etc/network/interfaces
+
+bracketright
+ alacritty -e --hold sudo iftop
+
+#curl here
+
+W
+ python ~/cmdlaunch.py whois   
+
+t
+ python ~/cmdlaunch.py tcpdump -i 
+
+T
+ python ~/cmdlaunch.py traceroute 
+
+X 
+ alacritty -e mitmproxy
+
+alt + q ; E
+ exec /home/hexe/Applications/eDEX-UI-Linux-x86_64_eecd3a9dec6a5328bb312833d8ae1604.AppImage 
+
+S
+ alacritty -e spiderfoot -l 127.0.0.1:7777"
+
+f
+ alacritty -e metasploit-framework.msfconsole
+ 
+shift + slash
+ alacritty -e emacs -nw ~/.config/sxhkd/network

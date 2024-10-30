@@ -2,29 +2,23 @@
 i 
  sh ~/labyrinth -i
 
+V 
+ sh ~/labyrinth -V
+
+alt + n
+ sh ~/labyrinth -i 
+
 n
  sh ~/labyrinth -n
 
 a
  sh ~/labyrinth -a 
-
-S
- sh ~/labyrinth -H 
-
-y
- sh ~/labyrinth -y 
-
-s
- sh ~/labyrinth -s 
- 
-V
- sh ~/labyrinth -V 
-
+    
 I
  sh ~/labyrinth -I 
 
-t
- sh ~/labyrinth -t
+Escape
+ sh ~/labyrinth -v 
 
 d
  sh ~/labyrinth -d 
@@ -58,12 +52,18 @@ Return
 o
  alacritty
 
-N 
+W 
  dwmc togglebar
 
 # kill windows. pleae. 
 q
  dwmc killclient
+
+s
+ redshift -O 3000
+
+S 
+ redshift -x
 
 # warpd
 f
@@ -77,7 +77,7 @@ u
  alacritty
  
 e
- alacritty -e emacs -nw 
+ alacritty -e nvim 
 
 c
  dwmc killclient  
@@ -93,23 +93,32 @@ alt + F1
 ctrl + space
  rofi -show drun
 
-# file managers
-F 
- alacritty -e ranger # default file manager.  
+F
+ alacritty -e ranger
 
-x
- xkill
+e
+ alacritty -e nvim
+
+E
+ thunderbird
 
 b
- python ~/cmdlaunch.py -n "qutebrowser"
-
-w
- dunstctl close-all
-
-W
- dunstctl history-pop
+ qutebrowser
  
-# grab current facing url in open browser
+B
+ torbrowser-launcher
+
+c  
+ vesktop
+
+g
+ gparted
+
+N
+ alacritty -e newsboat
+    	
+backslash ; {1-8} 
+ alacritty -e nvim ~/.config/sxhkd/{vim,ins,audio,system,network,debug}
 
 shift + slash
- alacritty -e emacs -nw ~/.config/sxhkd/vim
+ alacritty -e nvim ~/.config/sxhkd/task

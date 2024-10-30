@@ -1,36 +1,27 @@
 # labyrinth 
-i 
- sh ~/labyrinth -i
+i
+ sh ~/labyrinth -i 
 
-n
+Escape
+ sh ~/labyrinth -v 
+
+alt + n
+ sh ~/labyrinth -i 
+
+t
  sh ~/labyrinth -n
 
 a
  sh ~/labyrinth -a 
-
-S
- sh ~/labyrinth -H 
-
-y
- sh ~/labyrinth -y 
-
-s
- sh ~/labyrinth -s 
- 
-V
- sh ~/labyrinth -V 
-
+    
 I
  sh ~/labyrinth -I 
-
-t
- sh ~/labyrinth -t
 
 d
  sh ~/labyrinth -d 
 
 # dwm
-ctrl + {1,2,3,4,5,6,7,8,9} 
+w ; {1,2,3,4,5,6,7,8,9} 
  dwmc setlayoutex {1,2,3,4,5,6,7,8,9}
 
 m ; {1-9} 
@@ -55,15 +46,18 @@ M
 Return
  dwmc zoom
 
-o
- alacritty
-
-N 
+W 
  dwmc togglebar
 
 # kill windows. pleae. 
 q
  dwmc killclient
+
+s
+ redshift -O 3000
+
+S 
+ redshift -x
 
 # warpd
 f
@@ -72,18 +66,8 @@ f
 v
  warpd --normal
 
-# tools
-u
- alacritty
- 
-e
- alacritty -e emacs -nw 
-
-c
- dwmc killclient  
 
 # Menus
-
 Tab 
  rofi -show window
  
@@ -93,23 +77,33 @@ alt + F1
 ctrl + space
  rofi -show drun
 
-# file managers
+#tools
+e
+ alacritty -e emacs -nw 
+
+u
+ alacritty 
+
 F 
  alacritty -e ranger # default file manager.  
 
-x
- xkill
+r
+ alacritty -e sudo pacman -Syu
+
+R
+ python ~/cmdlaunch.py "sudo pacman -S"
+    
+P
+ python ~/cmdlaunch.py sudo systemctl restart 
+
+C  
+ rog-control-center
 
 b
- python ~/cmdlaunch.py -n "qutebrowser"
+ alacritty -e sudo bleachbit
 
-w
- dunstctl close-all
-
-W
- dunstctl history-pop
- 
-# grab current facing url in open browser
+p 
+ alacritty -e sudo htop
 
 shift + slash
- alacritty -e emacs -nw ~/.config/sxhkd/vim
+ alacritty -e emacs -nw ~/.config/sxhkd/system
