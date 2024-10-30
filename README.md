@@ -7,7 +7,10 @@ will be tested in: `ratpoison`
 
 ## dependencies
 
-`sxhkd` 
+`sxhkd` |
+`hyprctl/dwmc/etc` |
+`python` but kinda not rly. | 
+`warpd` 
 
 pro-tip: use `sed` if you want to make similar but sweeping changes to files. `s/nvim/emacs -nw/g` is a nice example. 
 
