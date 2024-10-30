@@ -16,8 +16,7 @@ pro-tip: use `sed` if you want to make similar but sweeping changes to files. `s
 
 ## installation
 
-add configurations stored in `sxhkdrcs/` to `~/.config/sxhkd`. 
-
-then u gonna `cp -v sxhkdrc sxhkdrc_bak`
+`cp -rv sxhkdrcs/* ~/.config/sxhkd/` 
+`cp -v sxhkdrc sxhkdrc_bak`
 
 after that just `cp -v vim sxhkdrc`, or `sh labyrinth -v`. should b good 2 go.
