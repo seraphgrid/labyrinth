@@ -11,7 +11,7 @@ will be tested in: `ratpoison`
 
 pro-tip: use `sed` if you want to make similar but sweeping changes to files. `s/nvim/emacs -nw/g` is a nice example. 
 
-## installation:
+## installation
 
 add configurations stored in `sxhkdrcs/` to `~/.config/sxhkd`. 
 
