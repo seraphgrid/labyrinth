@@ -17,6 +17,7 @@ pro-tip: use `sed` if you want to make similar but sweeping changes to files. `s
 ## installation
 
 `cp -rv sxhkdrcs/* ~/.config/sxhkd/` 
+
 `cp -v sxhkdrc sxhkdrc_bak`
 
-after that just `cp -v vim sxhkdrc`, or `sh labyrinth -v`. should b good 2 go.
+`sh labyrinth -v`
