@@ -1,127 +1,168 @@
-# labyrinth 
-alt + n
- sh ~/labyrinth -v
- 
-Escape
- sh ~/labyrinth -v
+# [main] 
 
-i
- sh ~/labyrinth -i 
+alt + q ; Tab 
+ sh ~/labyrinth -s
 
-alt + n
- sh ~/labyrinth -i 
+alt + Tab
+ sh ~/labyrinth -v 
 
-t
- sh ~/labyrinth -t
+alt + q ; alt + Tab 
+  sh ~/labyrinth -c
 
-a
- sh ~/labyrinth -a 
-    
-I
- sh ~/labyrinth -I 
-
-d
+alt + q ; space
  sh ~/labyrinth -d 
+# [wm]
 
-# dwm 
-m ; {1-9} 
- dwmc tagex {0-9}
+alt + q ; L  
+# $hould be able to go global
+ slock 
 
-M
- dwmc togglemax
-
-{1-9} 
- dwmc view {0-9}
-
-{j,k}
+alt + w ; {j,k}
  dwmc focusstack {+,-}1
 
-{J,K}
- dwmc {pushdown,pushup}
+alt + {j,k}
+ dwmc focusstack {+,-}1
 
-{h,l}
+alt + w ; {h,l}
  dwmc setmfact {-,+}0.05
 
-{o,Return}
- dwmc zoom
+shift + space ; {u,i}
+ dwmc setcfact {-,+}0.85
 
-b 
+shift + space ; o 
+ dwmc setcfact
+
+alt + w ; c 
+ dwmc setlayoutex {0,1}
+
+alt + w ; n 
  dwmc togglebar
 
-q
+alt + w ; {1-9}
+ dwmc view {0-9}
+
+shift + space ; {1-9}
+ dwmc tagex {0-9}
+
+alt + q ; {1-9}
+ dwmc tagex {0-9}
+
+alt + w ; {D,W}
+ dwmc {pushdown,pushup} 
+
+alt + {D,W}
+ dwmc {pushdown,pushup} 
+
+alt + w ; space 
+ dwmc togglemax
+
+alt + w ; Return
+ dwmc zoom
+
+alt + w ; e
+ dwmc zoom
+
+alt + w ; {d,w}
+ dwmc focusstack {+,-}1
+
+alt + q ; q 
  dwmc killclient
 
-u
+alt + w ; q 
+ dwmc killclient
+
+alt + w ; {n,N}  
+ dunstctl {close-all,history-pop}
+
+# [nav]
+
+alt + w ; f
  warpd --hint
 
-f
- warpd --hint
-
-v
+alt + w ; r
  warpd --normal
 
-# netsoftz  
-ctrl + p
- alacritty --hold -e ping 9.9.9.9 -c 8 
+alt + w ; slash
+ rofi -show window -kb-element-prev 'k' -kb-element-next 'j' -kb-accept-entry 'o'
 
-V
- riseup-vpn
+alt + w ; I
+ rofi -show drun
 
-ctrl + n
- alacritty --hold -e netstat -tuln
+alt + w ; r
+ spmenu
 
-p 
+alt + q ; semicolon
+ st
+
+# [applications]
+
+alt + q ; p
+ xterm -hold -e ping 9.9.9.9 -c 8 
+
+alt + q ; v ; c 
+ mullvad connect
+
+alt + q ; v ; d 
+ mullvad disconnect
+
+alt + q ; v ; r 
+ mullvad reconnect
+
+alt + q ; v ; d 
+ mullvad disconnect
+
+alt + q ; n ; s
+ python ~/cmdlaunch.py "netstat -tuln"
+
+alt + q ; colon
+ python ~/cmdlaunch.py ""
+
+alt + q ; s ; P
  python ~/cmdlaunch.py nmap -sP
 
-ctrl + N 
- alacritty -e sudo bandwich
+alt + q ; n ; m
+ xterm -hold -e sudo bandwhich
 
-n
- dunstctl close-all
-
-N
- dunstctl history-pop
-
-w
+alt + q ; V
  wireshark
 
-ctrl + {i,I}
- alacritty -e --hold sudo ifconfig wlp2s0 {up,down}
+alt + q ; n ; c ; {o}
+ xterm -hold -e sudo ifconfig wlp2s0 {up,down}
 
-alt + I
- alacritty --hold -e ifconfig -a 
+alt + q ; alt + i
+ xterm -hold -e ifconfig -a 
 
-parenleft
- alacritty --hold -e dig @127.0.0.1 duckduckgo.com 
+alt + q ; d
+ python ~/cmdlaunch.py "dig @127.0.0.1 +dnssec"
 
-bracketleft
- alacritty ---hold -e sudo nvim /etc/network/interfaces
+alt + q ; n ; e 
+ sudo nvim /etc/network/interfaces
 
-bracketright
- alacritty -e --hold sudo iftop
+alt + q ; n ; i 
+ xterm -hold -e sudo iftop
 
 #curl here
 
-W
- python ~/cmdlaunch.py whois   
+alt + q ; w
+ python ~/cmdlaunch.py "whois"
 
-t
- python ~/cmdlaunch.py tcpdump -i 
+alt + q ; t
+ python ~/cmdlaunch.py "traceroute" 
 
-T
- python ~/cmdlaunch.py traceroute 
+alt + q ; T
+ python ~/cmdlaunch.py "tcpdump -i"
 
-X 
- alacritty -e mitmproxy
+alt + q ; m 
+ xterm -hold -e mitmproxy
 
 alt + q ; E
  exec /home/hexe/Applications/eDEX-UI-Linux-x86_64_eecd3a9dec6a5328bb312833d8ae1604.AppImage 
 
-S
- alacritty -e spiderfoot -l 127.0.0.1:7777"
+alt + q ; s ; p 
+ xterm -hold -e spiderfoot -l 127.0.0.1:7777"
 
-f
- alacritty -e metasploit-framework.msfconsole
+alt + q ; M
+ xterm -hold -e metasploit-framework.msfconsole
  
-shift + slash
- alacritty -e emacs -nw ~/.config/sxhkd/network
+alt + q ; shift + slash
+ xterm -hold -e vim ~/.config/sxhkd/network

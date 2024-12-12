@@ -1,42 +1,45 @@
-# labyrinth 
-i 
- sh ~/labyrinth -i
+# intended for intricate user window management.
+# [labyrinth]
 
-n
- sh ~/labyrinth -n
+Tab ; v
+ sh ~/labyrinth -V
 
-a
+Tab ; a 
  sh ~/labyrinth -a 
 
-S
- sh ~/labyrinth -H 
+Tab ; n 
+ sh ~/labyrinth -n 
 
-y
- sh ~/labyrinth -y 
-
-s
+Tab ; y
  sh ~/labyrinth -s 
- 
-V
- sh ~/labyrinth -V 
 
-I
- sh ~/labyrinth -I 
-
-t
+Tab ; t
  sh ~/labyrinth -t
 
-d
- sh ~/labyrinth -d 
+Tab ; x
+ sh ~/labyrinth -H 
 
-# dwm
-ctrl + {1,2,3,4,5,6,7,8,9} 
- dwmc setlayoutex {1,2,3,4,5,6,7,8,9}
+Tab ; w 
+ sh ~/labyrinth -I 
 
-m ; {1-9} 
+i 
+ sh ~/labyrinth -I 
+
+alt + Tab 
+ sh ~/labyrinth -I 
+
+Tab ; f
+ sh ~/labyrinth -c 
+
+# [wm]
+
+space ; l  
+ dwmc setlayoutex {0,1}
+
+space ; {1-9} 
  dwmc tagex {0-9}
 
-M
+shift + space
  dwmc togglemax
 
 {1-9} 
@@ -45,25 +48,48 @@ M
 {j,k}
  dwmc focusstack {+,-}1
 
-{J,K}
+ctrl + {j,k}
  dwmc {pushdown,pushup}
 
-# resize window left and right
-{h,l}
- dwmc setmfact {-,+}0.05
-
-Return
- dwmc zoom
-
-o
- alacritty
+n
+ dunstctl close-all
 
 N 
+ dunstctl history-pop
+
+{l,h}
+ dwmc setmfact {+,-}0.05
+
+{J,K}
+ dwmc setcfact {+,-}0.45
+
+equal
+ dwmc setcfact 
+
+o
+ dwmc zoom
+
+r 
+ dwmc focusmaster
+
+e
+ dwmc zoom
+
+W 
  dwmc togglebar
 
+n
+ dunstctl close-all
+
+N 
+ dunstctl history-pop
+
 # kill windows. pleae. 
-q
+q 
  dwmc killclient
+
+backslash ; x 
+ python ~/cmdlaunch.py -n "pkill -f"
 
 # warpd
 f
@@ -72,44 +98,104 @@ f
 v
  warpd --normal
 
-# tools
-u
- alacritty
+# [menus]
+
+slash 
+ rofi -show window -kb-element-prev 'k' -kb-element-next 'j' -kb-accept-entry 'o'
  
-e
- alacritty -e emacs -nw 
-
-c
- dwmc killclient  
-
-# Menus
-
-Tab 
- rofi -show window
- 
-alt + F1
+I
  rofi -show drun
 
-ctrl + space
- rofi -show drun
+a
+ spmenu
 
-# file managers
-F 
- alacritty -e ranger # default file manager.  
+colon
+ sh ~/labyrinth -I && python ~/cmdlaunch.py "" && sh ~/labyrinth -v
 
-x
- xkill
-
-b
- python ~/cmdlaunch.py -n "qutebrowser"
-
-w
- dunstctl close-all
-
-W
- dunstctl history-pop
- 
-# grab current facing url in open browser
+# [config] 
 
 shift + slash
- alacritty -e emacs -nw ~/.config/sxhkd/vim
+ st -e vim ~/.config/sxhkd/vim   
+
+# [applications] 
+
+semicolon
+ st
+
+backslash ; m ; d
+ sh ~/labyrinth -I && python ~/cmdlaunch.py "mkdir -p" && sh ~/labyrinth -v
+
+backslash ; r ; d
+ sh ~/labyrinth -I && python ~/cmdlaunch.py "rmdir -p" && sh ~/labyrinth -v
+
+backslash ; f ; t
+ sh ~/labyrinth -I && python ~/cmdlaunch.py "touch" && sh ~/labyrinth -v
+
+backslash ; p ; i
+ sh ~/labyrinth -I && python ~/cmdlaunch.py "sudo pacman -Syu" && sh ~/labyrinth -v
+
+backslash ; p ; I
+ sh ~/labyrinth -I && python ~/cmdlaunch.py "yay -S" && sh ~/labyrinth -v 
+
+backslash ; p ; q
+ sh ~/labyrinth -I && python ~/cmdlaunch.py "yay -Qs" && sh ~/labyrinth -v
+
+backslash ; p ; Q
+ sh ~/labyrinth -I && python ~/cmdlaunch.py "sudo pacman -Qs" && sh ~/labyrinth -v
+
+backslash ; w
+ firefox
+
+backslash ; e
+ sh ~/labyrinth -I && python ~/cmdlaunch.py -n "st -e $EDITOR" && sh ~/labyrinth -v
+
+backslash ; l 
+ slock
+
+backslash ; c
+ xterm -hold -e "cal"
+
+# need actual marking functionality.
+# $ometing need$ to allow u to mark a currently open file into the nromal mode config for being launched with grave then the letter.
+
+# [bookmark$]
+
+grave ; z
+ st -e $EDITOR ~/.zshrc
+
+grave ; a 
+ firefox "https://duck.ai"
+
+grave ; m
+ st -e ncmpcpp
+
+grave ; r 
+ st -e ranger
+
+grave ; k
+ screenkey
+
+grave ; K
+ pkill screenkey
+
+grave ; v
+ vokoscreenNG
+
+grave ; i
+ armcord
+
+grave ; d 
+ jamesdsp
+
+grave ; w
+ nitrogen
+
+grave ; c
+ rog-control-center
+
+grave ; C
+ sh ~/labyrinth -I && st -e nvim ~/cmdlaunch.py && sh ~/labyrinth -v 
+
+grave ; g
+ st -e nethack
+# w + b back and forth workspace. 

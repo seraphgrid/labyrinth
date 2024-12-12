@@ -1,99 +1,153 @@
-# labyrinth 
-i 
- sh ~/labyrinth -i
+# [labyrinth]
 
-n
- sh ~/labyrinth -n
+alt + q ; alt + Tab  
+# switching bodies
+# config
+ sh ~/labyrinth -c
 
-a
- sh ~/labyrinth -a 
- 
-s
- sh ~/labyrinth -S 
+alt + Tab
+# Vim
+ sh ~/labyrinth -v
 
-S
- sh ~/labyrinth -s 
+alt + q ; Tab
+# Vim
+ sh ~/labyrinth -a
 
-Escape
- sh ~/labyrinth -v 
+alt + q ; space 
+# VI
+ sh ~/labyrinth -V
 
-I
- sh ~/labyrinth -I 
+# [wm]
 
-d
- sh ~/labyrinth -d 
-
-# dwm
-ctrl + w ; {1,2,3,4,5,6,7,8,9} 
- dwmc setlayoutex {1,2,3,4,5,6,7,8,9}
-
-m ; {1-9} 
- dwmc tagex {0-9}
-
-M
- dwmc togglemax
-
-{1-9} 
- dwmc view {0-9}
-
-{j,k}
+alt + w ; {j,k}
  dwmc focusstack {+,-}1
 
-{J,K}
- dwmc {pushdown,pushup}
+alt + {j,k}
+ dwmc focusstack {+,-}1
 
-# resize window left and right
-{h,l}
+alt + w ; {h,l}
  dwmc setmfact {-,+}0.05
 
-Return
- dwmc zoom
+shift + space ; {u,i}
+ dwmc setcfact {-,+}0.85
 
-W 
+shift + space ; o 
+ dwmc setcfact
+
+alt + w ; L 
+ dwmc setlayoutex {0,1}
+
+alt + w ; n 
  dwmc togglebar
 
-# kill windows. pleae. 
-c
+alt + w ; {1-9}
+ dwmc view {0-9}
+
+shift + space ; {1-9}
+ dwmc tagex {0-9}
+
+alt + q ; {1-9}
+ dwmc tagex {0-9}
+
+alt + w ; {D,W}
+ dwmc {pushdown,pushup} 
+
+alt + {D,W}
+ dwmc {pushdown,pushup} 
+
+alt + w ; space 
+ dwmc togglemax
+
+alt + w ; Return
+ dwmc zoom
+
+alt + w ; e
+ dwmc zoom
+
+alt + w ; {d,w}
+ dwmc focusstack {+,-}1
+
+alt + q ; q 
  dwmc killclient
 
-q
+alt + w ; q 
  dwmc killclient
 
-s
- redshift -O 3000
+alt + w ; {n,N}  
+ dunstctl {close-all,history-pop}
 
-S 
- redshift -x
+# [nav]
 
-# warpd
-
-f
+alt + w ; f
  warpd --hint
 
-v
+alt + w ; r
  warpd --normal
 
-# videowarez.
-p
- nomacs
+alt + w ; slash
+ rofi -show window -kb-element-prev 'k' -kb-element-next 'j' -kb-accept-entry 'o'
+
+alt + q ; I
+ rofi -show drun
+
+alt + q ; a
+ rofi -show drun
+
+# [photo]
+
+alt + q ; p
+ python ~/cmdlaunch.py "feh"
+
+# [tools]
  
-u
- alacritty 
+alt + q ; colon
+ python ~/cmdlaunch.py "" 
 
-V
- mpv ~/Videos/ 
+alt + q ; {b,B}
+ {firefox,torbrowser-launcher} 
 
-C
+alt + q ; v
+ python ~/cmdlaunch.py -d "$HOME/Pictures/x" "mpv ." 
+
+alt + q ; P ; y
+ python ~/cmdlaunch.py -n "yay -a --noconfirm" 
+
+alt + q ; P ; Y
+ python ~/cmdlaunch.py -n "yay -Syu --noconfirm" 
+
+alt + q ; P ; m 
+ python ~/cmdlaunch.py -n "sudo pacman -S --noconfirm" 
+
+alt + q ; P ; M
+ python ~/cmdlaunch.py -n "sudo pacman -Syu --noconfirm" 
+
+alt + q ; r
+ vokoscreenNG
+
+alt + q ; t 
+ python ~/cmdlaunch.py "python ~/t/t.py --task-dir ~/tasks --list tasks -d" 
+
+alt + q ; c
  handbrake
 
-I
- sh ~/labyrinth -I 
-
-b
- python ~/cmdlaunch.py "qutebrowser"
-
-e
+alt + q ; e
  kdenlive
 
-shift + slash
- alacritty -e nvim ~/.config/sxhkd/video
+# [basic_system]
+
+alt + q ; s  
+ redshift {-O 4300,-x}
+
+alt + w ; a 
+ xkill 
+
+alt + q ; comma
+ rog-control-center
+
+alt + q ; r 
+  slock
+
+# [config]
+
+alt + q ; shift + slash
+ st -e nvim ~/.config/sxhkd/video

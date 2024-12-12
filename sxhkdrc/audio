@@ -1,110 +1,187 @@
-# labyrinth
-V
- sh ~/labyrinth -V
+# [labyrinth]
 
-alt + n
+alt + Tab  
+# config
  sh ~/labyrinth -v
 
-I
+alt + q ; Tab 
+# audio
  sh ~/labyrinth -I
 
-i
- sh ~/labyrinth -i
+alt + q ; alt + Tab
+# config
+ sh ~/labyrinth -c
 
-t
- sh ~/labyrinth -t
+alt + q ; space
+# normal
+ sh ~/labyrinth -V
 
-n
- sh ~/labyrinth -n
+# [wm]
 
-d
- sh ~/labyrinth -d 
-
-# dwm 
-m ; {1-9} 
- dwmc tagex {0-9}
-
-M
- dwmc togglemax
-
-{1-9} 
- dwmc view {0-9}
-
-{j,k}
+alt + w ; {j,k}
  dwmc focusstack {+,-}1
 
-{J,K}
- dwmc {pushdown,pushup}
+alt + {j,k}
+ dwmc focusstack {+,-}1
 
-{h,l}
+alt + w ; {h,l}
  dwmc setmfact {-,+}0.05
 
-{o,Return}
+shift + space ; {u,i}
+ dwmc setcfact {-,+}0.85
+
+shift + space ; o 
+ dwmc setcfact
+
+alt + w ; L 
+ dwmc setlayoutex {0,1}
+
+alt + w ; n 
+ dwmc togglebar
+
+alt + w ; {1-9}
+ dwmc view {0-9}
+
+shift + space ; {1-9}
+ dwmc tagex {0-9}
+
+alt + q ; {1-9}
+ dwmc tagex {0-9}
+
+alt + w ; {D,W}
+ dwmc {pushdown,pushup} 
+
+alt + {D,W}
+ dwmc {pushdown,pushup} 
+
+alt + w ; space 
+ dwmc togglemax
+
+alt + w ; Return
  dwmc zoom
 
-N
- dwmc togglebar
-q
+alt + w ; e
+ dwmc zoom
+
+alt + w ; {d,w}
+ dwmc focusstack {+,-}1
+
+alt + q ; q 
  dwmc killclient
 
-w
- dunstctl close-all
+alt + w ; q 
+ dwmc killclient
 
-W
- dunstctl history-pop
+alt + q ; {w,W}  
+ dunstctl {close-all,history-pop}
 
-# warpd
-u
+# [warpd]
+
+alt + w ; f
  warpd --hint
 
-f
- warpd --hint
-
-v
+alt + w ; r
  warpd --normal
 
-# audiosoftz.
-a ; {1,2,3}
- {alacritty -e ncmpcpp,env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U,jamesdsp}
+alt + w ; slash
+ rofi -show window -kb-element-prev 'k' -kb-element-next 'j' -kb-accept-entry 'o'
 
-e 
- alacritty -e sudo nvim /usr/share/pipewire/pipewire.conf 
+alt + q ; I 
+ rofi -show drun
 
-D
- bitwig-studio
+alt + q ; a 
+ spmenu
 
-grave 
- nicotine
+# [mpc]
 
-A ; {1-3} 
- {pavucontrol,friture,alacritty -e alsamixer}
-
-{r,R} 
+alt + q ; c ; {r,R} 
  mpc repeat {on,off}	
 
-{s,S} 
- mpc single {on,off}	
+alt + q ; c ; {s,S} 
+ notify-send $(mpc single {on,off})	
 
-p 
+alt + q ; c ; p 
  mpc toggle	
 
-C 
+alt + q ; c ; c 
  notify-send "$(mpc current)" 
 
-U 
- mpc update
+alt + q ; c ; u 
+ notify-send "$(mpc update)"
 
-e
- alacritty -e sudo nvim /usr/share/pipewire/pipewire.conf
+# [tools] 
 
-ctrl + e 
+alt + q ; semicolon
+ st 
+
+alt + q ; e
+ st -e vim ~/Music/lyrics/sp.txt 
+
+alt + q ; E
+ st -hold -e cursetag "/home/hexe/Music/collection/genre"
+
+alt + q ; d 
+ nicotine
+
+alt + q ; D
+ bitwig-studio
+
+alt + q ; r
  goodvibes
 
-T
- blueman-manager
+alt + q ; m ; {1,2,3}
+ {st -e ncmpcpp,env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U,jamesdsp}
 
-Escape
- sh ~/labyrinth -v
+alt + q ; M ; {a,A,m,b,d}  
+ {pavucontrol,friture,st -e alsamixer,blueman-manager,jamesdsp}
 
-shift + slash
- alacritty -e nvim ~/.config/sxhkd/audio
+alt + q ; c
+ firefox "https://freesound.org"
+
+
+# needs special behavior for creating directories blind with prepended paths.
+
+alt + q ; f 
+ st -e ranger ~/Music
+
+alt + q ; p
+ python ~/cmdlaunch.py "yay -a --noconfirm" 
+
+alt + q ; P
+ python ~/cmdlaunch.py "sudo pacman -S --noconfirm" 
+
+# [yt-dlp] 
+
+alt + q ; D
+ python ~/cmdlaunch.py -d "$HOME/Music/collection/rnd" "yt-dlp"
+
+# [beets]
+
+alt + q ; b ; i
+ python ~/cmdlaunch.py- -d "$HOME/Music/collection/genre" "beet import"
+
+alt + q ; b ; l  
+ python ~/cmdlaunch.py "beet list"
+
+alt + q ; b ; m 
+ python ~/cmdlaunch.py "beet modify"
+
+alt + q ; b ; M 
+ python ~/cmdlaunch.py "beet move"
+
+alt + q ; b ; u 
+ python ~/cmdlaunch.py "beet update"
+
+alt + q ; b ; f 
+ python ~/cmdlaunch.py "beet fields"
+
+alt + q ; b ; s
+ python ~/cmdlaunch.py "beet stats"
+
+# [orpheus]
+
+
+# [config]
+
+alt + q ; shift + slash
+ st -e vim ~/.config/sxhkd/audio
