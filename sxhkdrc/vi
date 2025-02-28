@@ -19,19 +19,19 @@ alt + q ; alt + w
 # [nav]
 
 alt + w ; f
- warpd --hint
+ hints
 
-alt + w ; r
- warpd --normal
+alt + w ; v
+ hints -m scroll
 
 alt + w ; slash
  rofi -show window -kb-element-prev 'k' -kb-element-next 'j' -kb-accept-entry 'o'
 
-alt + w ; I
- rofi -show drun
+#alt + w ; I
+ #rofi -show drun
 
 alt + w ; a
- spmenu
+ rofi -show drun
 
 alt + w ; semicolon
  st
@@ -83,6 +83,9 @@ alt + w ; Return
 alt + w ; e
  dwmc zoom
 
+alt + w ; o
+ dwmc zoom
+
 alt + w ; {d,w}
  dwmc focusstack {+,-}1
 
@@ -92,68 +95,54 @@ alt + q ; q
 alt + w ; q 
  dwmc killclient
 
-alt + q ; {n,N}  
+alt + w ; {n,N}  
  dunstctl {close-all,history-pop}
+
+alt + w ; s  
+ redshift {-O 2444,-x}
 
 # [tools]
 
 alt + q ; e 
  st -e $EDITOR  
    
-alt + q ; v  
- spectacle -r # TODO: Change this to more u$eful Thing.
-      
-alt + q ; C
+alt + q ; v 
+ exec ~/.vim-anywhere/bin/run
+     
+alt + q ; backslash ; c  
  exec /home/hexe/Applications/Chatbox-1.3.12-x86_64_310e5363068bf30d5f61cba692ff230f.AppImage --no-sandbox %U
 
 alt + q ; colon
  python ~/cmdlaunch.py ""
 
-alt + q ; {B,N}
+alt + q ; backslash ; {b,B}
  {firefox,torbrowser-launcher} 
 
 alt + q ; m 
- st -e ncmpcpp 
+ st -e cmus 
  
 alt + q ; c
- vesktop 
+ armcord 
 
-alt + q ; r
+alt + q ; backslash ; f
  st -e ranger
 
-alt + q ; M
- python ~/cmdlaunch.py "sh ~/labyrinth -"
-
-alt + q ; d
+alt + q ; backslash ; d
  gnome-dictionary
+
+alt + q ; backslash ; {r,R}
+ {goodvibes,shortwave}
 
 alt + q ; b  
 # book 
  manuskript 
 
-alt + q ; p 
+alt + q ; B 
 # plan
  logseq 
 
-alt + q ; R
+alt + q ; n
  st -e newsboat
-
-# [package]
-
-alt + q ; g ; c 
- python ~/cmdlaunch.py "git clone"
-
-alt + q ; p ; y
- python ~/cmdlaunch.py "yay -a --noconfirm" 
-
-alt + q ; p ; Y
- python ~/cmdlaunch.py "yay -Syu --noconfirm" 
-
-alt + q ; p ; m 
- python ~/cmdlaunch.py "sudo pacman -S --noconfirm" 
-
-alt + q ; p ; M
- python ~/cmdlaunch.py "sudo pacman -Syu --noconfirm" 
 
 # [productivity]  
 # quick productivity functions.
@@ -169,13 +158,13 @@ alt + q ; d
 
 # [basic_system]
 
-alt + q ; s  
- redshift {-O 4300,-x}
-
 alt + w ; x 
  xkill 
 
-alt + q ; L  
+alt + w ; P 
+ python ~/cmdlaunch.py "pkill" 
+
+shift + space ; l  
  slock 
 
 # [config]

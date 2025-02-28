@@ -88,15 +88,18 @@ N
 q 
  dwmc killclient
 
-backslash ; x 
+backslash ; q 
+ dwmc quit
+
+x 
  python ~/cmdlaunch.py -n "pkill -f"
 
 # warpd
 f
- warpd --hint
+ hints
 
 v
- warpd --normal
+ hints -m scroll
 
 # [menus]
 
@@ -114,13 +117,20 @@ colon
 
 # [config] 
 
-shift + slash
+
+backslash ; shift + slash
  st -e vim ~/.config/sxhkd/vim   
+
+shift + slash
+ xterm -hold -e less ~/Documents/lbykeyz.txt
 
 # [applications] 
 
 semicolon
- st
+ sh ~/labyrinth -I && st 
+
+backslash ; semicolon
+ st -e $(xsel -b)
 
 backslash ; m ; d
  sh ~/labyrinth -I && python ~/cmdlaunch.py "mkdir -p" && sh ~/labyrinth -v
@@ -152,8 +162,8 @@ backslash ; e
 backslash ; l 
  slock
 
-backslash ; c
- xterm -hold -e "cal"
+backslash ; v 
+ sh ~/labyrinth -I && exec ~/.vim-anywhere/bin/run && sh ~/labyrinth -v
 
 # need actual marking functionality.
 # $ometing need$ to allow u to mark a currently open file into the nromal mode config for being launched with grave then the letter.
@@ -161,16 +171,19 @@ backslash ; c
 # [bookmark$]
 
 grave ; z
- st -e $EDITOR ~/.zshrc
+ sh ~/labyrinth -I && st -e $EDITOR ~/.zshrc
 
 grave ; a 
- firefox "https://duck.ai"
+ sh ~/labyrinth -I && firefox "https://duck.ai"
 
 grave ; m
- st -e ncmpcpp
+ sh ~/labyrinth -I && st -e ncmpcpp
 
-grave ; r 
- st -e ranger
+grave ; M
+ sh ~/labyrinth -I && env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U
+
+grave ; f 
+ sh ~/labyrinth -I && st -e ranger
 
 grave ; k
  screenkey
@@ -181,7 +194,7 @@ grave ; K
 grave ; v
  vokoscreenNG
 
-grave ; i
+grave ; c
  armcord
 
 grave ; d 
@@ -197,5 +210,12 @@ grave ; C
  sh ~/labyrinth -I && st -e nvim ~/cmdlaunch.py && sh ~/labyrinth -v 
 
 grave ; g
- st -e nethack
+ sh ~/labyrinth -I && st -e nethack
+
+grave ; b 
+ sh ~/labyrinth -I && blueman-manager
+
+shift + slash
+ sh ~/labyrinth -I && xterm -hold -e $EDITOR ~/Documents/lbykeyz.txt && sh ~/labyrinth -v
+
 # w + b back and forth workspace. 

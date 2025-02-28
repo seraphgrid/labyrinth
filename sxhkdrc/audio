@@ -78,35 +78,32 @@ alt + q ; {w,W}
 # [warpd]
 
 alt + w ; f
- warpd --hint
+ hints
 
-alt + w ; r
- warpd --normal
+alt + w ; v
+ hints -m scroll
 
 alt + w ; slash
  rofi -show window -kb-element-prev 'k' -kb-element-next 'j' -kb-accept-entry 'o'
 
-alt + q ; I 
- rofi -show drun
-
 alt + q ; a 
- spmenu
+ rofi -show drun
 
 # [mpc]
 
-alt + q ; c ; {r,R} 
+alt + q ; backslash ; {r,R} 
  mpc repeat {on,off}	
 
-alt + q ; c ; {s,S} 
+alt + q ; backslash ; {s,S} 
  notify-send $(mpc single {on,off})	
 
-alt + q ; c ; p 
+alt + q ; backslash ; p 
  mpc toggle	
 
-alt + q ; c ; c 
+alt + q ; backslash ; c 
  notify-send "$(mpc current)" 
 
-alt + q ; c ; u 
+alt + q ; backslash ; u 
  notify-send "$(mpc update)"
 
 # [tools] 
@@ -115,13 +112,16 @@ alt + q ; semicolon
  st 
 
 alt + q ; e
- st -e vim ~/Music/lyrics/sp.txt 
+ st -e $EDITOR ~/Music/lyrics/scratch.txt 
 
 alt + q ; E
  st -hold -e cursetag "/home/hexe/Music/collection/genre"
 
-alt + q ; d 
+alt + q ; backslash ; n 
  nicotine
+
+alt + q ; d
+ renoise 
 
 alt + q ; D
  bitwig-studio
@@ -135,7 +135,7 @@ alt + q ; m ; {1,2,3}
 alt + q ; M ; {a,A,m,b,d}  
  {pavucontrol,friture,st -e alsamixer,blueman-manager,jamesdsp}
 
-alt + q ; c
+alt + q ; b
  firefox "https://freesound.org"
 
 
@@ -158,7 +158,7 @@ alt + q ; D
 # [beets]
 
 alt + q ; b ; i
- python ~/cmdlaunch.py- -d "$HOME/Music/collection/genre" "beet import"
+ python ~/cmdlaunch.py -d "$HOME/Music/collection/genre" "beet import"
 
 alt + q ; b ; l  
  python ~/cmdlaunch.py "beet list"
@@ -184,4 +184,4 @@ alt + q ; b ; s
 # [config]
 
 alt + q ; shift + slash
- st -e vim ~/.config/sxhkd/audio
+ st -e nvim ~/.config/sxhkd/audio
