@@ -1,17 +1,18 @@
 #!/bin/bash
 
 # Define the paths to your configuration files
-VIM_MODE="$HOME/.config/sxhkd/vim"          # Main configuration file
-INSERT_MODE="$HOME/.config/sxhkd/ins"  # Keyboard-respecting configuration file
-MODE_FILE="$HOME/.config/sxhkd/current_mode"      # File to store the current mode
+VIM_MODE="$HOME/.config/sxhkd/vim"           # Main configuration file
+INSERT_MODE="$HOME/.config/sxhkd/ins"        # Keyboard-respecting configuration file
+MODE_FILE="$HOME/.config/sxhkd/current_mode" # File to store the current mode
 DEBUG_MODE="$HOME/.config/sxhkd/debug"
 SECURITY_MODE="$HOME/.config/sxhkd/security"
 VIDEO_MODE="$HOME/.config/sxhkd/video"
 AUDIO_MODE="$HOME/.config/sxhkd/audio"
-SYSTEM_MODE="$HOME/.config/sxhkd/system" # Monitoring system internals. 
+SYSTEM_MODE="$HOME/.config/sxhkd/system"     # Monitoring system internals. 
 NETWORK_MODE="$HOME/.config/sxhkd/network"
-GAME_MODE="$HOME/.config/sxhkd/gaming"
+GAME_MODE="$HOME/.config/sxhkd/game"
 TASK_MODE="$HOME/.config/sxhkd/task"
+CONFIG_MODE="$HOME/.config/sxhkd/config"
 VIM_INS="$HOME/.config/sxhkd/vi"
 
 # Function to restart sxhkd with a specified configuration
@@ -129,11 +130,19 @@ case "$1" in
         echo "SYS" > "$MODE_FILE"
         notify-send "SYSTEM"
 	;;
+
+    -c) 
+        restart_sxhkd "$CONFIG_MODE"
+        echo "CONF" > "$MODE_FILE"
+        notify-send "CONFIG"
+	;;
+
     -H)
         show_current_mode
         ;;
 
-    *)
+    -h) 
+
         echo "Usage: $0 -v | -i | -d | -n | -a | -t | -s"
         echo "  -v: VIM MODE ENABLE"
         echo "  -i: INSERT MODE ENABLE"
@@ -145,6 +154,12 @@ case "$1" in
         echo "  -t: TASK MODE ENABLE" 
         echo "  -S: SYSTEM MODE ENABLE"
         echo "  -H: SHOW CURRENT MODE"
-        ;;
+        ;; 
+
+    *)
+        restart_sxhkd "$VIM_MODE"
+        echo "START" > "$MODE_FILE"
+        notify-send "VIM"
+        ;; 
 
 esac
