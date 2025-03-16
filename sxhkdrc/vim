@@ -85,7 +85,7 @@ N
  dunstctl history-pop
 
 # kill windows. pleae. 
-q 
+d 
  dwmc killclient
 
 backslash ; q 
@@ -95,6 +95,7 @@ x
  python ~/cmdlaunch.py -n "pkill -f"
 
 # warpd
+
 f
  hints
 
@@ -113,48 +114,45 @@ a
  spmenu
 
 colon
- sh ~/labyrinth -I && python ~/cmdlaunch.py "" && sh ~/labyrinth -v
+ sh labyrinth -I && python ~/cmdlaunch.py "" && sh ~/labyrinth -v
 
 # [config] 
 
 
 backslash ; shift + slash
- st -e vim ~/.config/sxhkd/vim   
+ st -e nvim ~/.config/sxhkd/vim   
 
 shift + slash
  xterm -hold -e less ~/Documents/lbykeyz.txt
 
 # [applications] 
 
-semicolon
- sh ~/labyrinth -I && st 
+q
+ st 
 
 backslash ; semicolon
  st -e $(xsel -b)
 
 backslash ; m ; d
- sh ~/labyrinth -I && python ~/cmdlaunch.py "mkdir -p" && sh ~/labyrinth -v
+ sh labyrinth -I && python ~/cmdlaunch.py "mkdir -p" && sh ~/labyrinth -v
 
 backslash ; r ; d
- sh ~/labyrinth -I && python ~/cmdlaunch.py "rmdir -p" && sh ~/labyrinth -v
-
-backslash ; f ; t
- sh ~/labyrinth -I && python ~/cmdlaunch.py "touch" && sh ~/labyrinth -v
+ sh labyrinth -I && python ~/cmdlaunch.py "rmdir -p" && sh ~/labyrinth -v
 
 backslash ; p ; i
- sh ~/labyrinth -I && python ~/cmdlaunch.py "sudo pacman -Syu" && sh ~/labyrinth -v
+ sh labyrinth -I && python ~/cmdlaunch.py "sudo pacman -Syu" && sh ~/labyrinth -v
 
 backslash ; p ; I
- sh ~/labyrinth -I && python ~/cmdlaunch.py "yay -S" && sh ~/labyrinth -v 
+ sh labyrinth -I && python ~/cmdlaunch.py "yay -S" && sh ~/labyrinth -v 
 
 backslash ; p ; q
- sh ~/labyrinth -I && python ~/cmdlaunch.py "yay -Qs" && sh ~/labyrinth -v
+ sh labyrinth -I && python ~/cmdlaunch.py "yay -Qs" && sh ~/labyrinth -v
 
 backslash ; p ; Q
- sh ~/labyrinth -I && python ~/cmdlaunch.py "sudo pacman -Qs" && sh ~/labyrinth -v
+ sh labyrinth -I && python ~/cmdlaunch.py "sudo pacman -Qs" && sh ~/labyrinth -v
 
 backslash ; w
- firefox
+ qutebrowser
 
 backslash ; e
  sh ~/labyrinth -I && python ~/cmdlaunch.py -n "st -e $EDITOR" && sh ~/labyrinth -v
@@ -162,28 +160,25 @@ backslash ; e
 backslash ; l 
  slock
 
-backslash ; v 
- sh ~/labyrinth -I && exec ~/.vim-anywhere/bin/run && sh ~/labyrinth -v
-
 # need actual marking functionality.
 # $ometing need$ to allow u to mark a currently open file into the nromal mode config for being launched with grave then the letter.
 
 # [bookmark$]
 
 grave ; z
- sh ~/labyrinth -I && st -e $EDITOR ~/.zshrc
+ sh labyrinth -I && st -e $EDITOR ~/.zshrc
 
 grave ; a 
- sh ~/labyrinth -I && firefox "https://duck.ai"
+ sh labyrinth -I && firefox "https://duck.ai"
 
 grave ; m
- sh ~/labyrinth -I && st -e ncmpcpp
+ sh labyrinth -I && st -e ncmpcpp
 
 grave ; M
- sh ~/labyrinth -I && env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U
+ sh labyrinth -I && env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U
 
 grave ; f 
- sh ~/labyrinth -I && st -e ranger
+ sh labyrinth -I && st -e ranger
 
 grave ; k
  screenkey
@@ -207,15 +202,15 @@ grave ; c
  rog-control-center
 
 grave ; C
- sh ~/labyrinth -I && st -e nvim ~/cmdlaunch.py && sh ~/labyrinth -v 
+ sh labyrinth -I && st -e nvim ~/cmdlaunch.py && sh ~/labyrinth -v 
 
 grave ; g
- sh ~/labyrinth -I && st -e nethack
+ sh labyrinth -I && st -e nethack
 
 grave ; b 
- sh ~/labyrinth -I && blueman-manager
+ sh labyrinth -I && blueman-manager
 
-shift + slash
- sh ~/labyrinth -I && xterm -hold -e $EDITOR ~/Documents/lbykeyz.txt && sh ~/labyrinth -v
+#shift + slash
+# sh ~/labyrinth -I && xterm -hold -e $EDITOR ~/Documents/lbykeyz.txt && sh ~/labyrinth -v
 
 # w + b back and forth workspace. 

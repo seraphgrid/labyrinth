@@ -1,28 +1,18 @@
 # [labyrinth]
 
-alt + q ; alt + Tab  
+alt + w ; ctrl + d  
 # config
- sh ~/labyrinth -c
+ labyrinth -c
 
-alt + q ; Tab 
+alt + w ; a
 # audio
- sh ~/labyrinth -a
+ labyrinth -a
 
-alt + Tab
+alt + w ; e
 # normal
- sh ~/labyrinth -v
-
-alt + q ; alt + w  
-# Vim
- sh ~/labyrinth -V
+ labyrinth -v
 
 # [nav]
-
-alt + w ; f
- hints
-
-alt + w ; v
- hints -m scroll
 
 alt + w ; slash
  rofi -show window -kb-element-prev 'k' -kb-element-next 'j' -kb-accept-entry 'o'
@@ -30,16 +20,16 @@ alt + w ; slash
 #alt + w ; I
  #rofi -show drun
 
-alt + w ; a
+alt + w ; I
  rofi -show drun
-
-alt + w ; semicolon
- st
 
 # [wm]
 
-alt + w ; {j,k}
- dwmc focusstack {+,-}1
+#alt + w ; {j,k}
+# dwmc focusstack {+,-}1
+
+#alt + q ; {j,k}
+# dwmc focusstack {+,-}1
 
 alt + {j,k}
  dwmc focusstack {+,-}1
@@ -80,70 +70,57 @@ alt + w ; space
 alt + w ; Return
  dwmc zoom
 
-alt + w ; e
- dwmc zoom
-
 alt + w ; o
  dwmc zoom
 
-alt + w ; {d,w}
- dwmc focusstack {+,-}1
+alt + w ; alt + w
+ dwmc focusstack -1
+
+alt + q ; alt + q
+ dwmc focusstack +1
+
+alt + w ; d 
+ dwmc killclient
 
 alt + q ; q 
  dwmc killclient
 
-alt + w ; q 
- dwmc killclient
-
 alt + w ; {n,N}  
- dunstctl {close-all,history-pop}
-
 alt + w ; s  
  redshift {-O 2444,-x}
 
 # [tools]
 
-alt + q ; e 
- st -e $EDITOR  
-   
-alt + q ; v 
- exec ~/.vim-anywhere/bin/run
-     
-alt + q ; backslash ; c  
- exec /home/hexe/Applications/Chatbox-1.3.12-x86_64_310e5363068bf30d5f61cba692ff230f.AppImage --no-sandbox %U
+alt + w ; q 
+ st
+
+alt + q ; e
+ st -e nvim
 
 alt + q ; colon
  python ~/cmdlaunch.py ""
 
-alt + q ; backslash ; {b,B}
- {firefox,torbrowser-launcher} 
+alt + q ; {w,W}
+ {qutebrowser,torbrowser-launcher} 
 
-alt + q ; m 
- st -e cmus 
- 
-alt + q ; c
- armcord 
-
-alt + q ; backslash ; f
- st -e ranger
-
-alt + q ; backslash ; d
+alt + q ; d
  gnome-dictionary
 
-alt + q ; backslash ; {r,R}
- {goodvibes,shortwave}
+alt + q ; ctrl + e
+ goodvibes
 
-alt + q ; b  
+alt + q ; c  
 # book 
  manuskript 
-
-alt + q ; B 
-# plan
- logseq 
 
 alt + q ; n
  st -e newsboat
 
+alt + q ; m 
+ st -e ncmpcpp 
+
+alt + q ; space
+ armcord 
 # [productivity]  
 # quick productivity functions.
 
@@ -169,5 +146,5 @@ shift + space ; l
 
 # [config]
 
-alt + q ; shift + slash
- st -e $EDITOR ~/.config/sxhkd/vi
+alt + q ; slash
+ st -e nvim ~/.config/sxhkd/vi
