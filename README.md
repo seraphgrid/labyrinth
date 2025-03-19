@@ -1,10 +1,6 @@
 # labyrinth
 
 `labyrinth` is the keybinding overlay to `widow`, a modal desktop environment.
-built atop `sxhkd`, this turns `widow` into a vim-like interface. this invites 
-focus towards the task at hand while enhancing various aspects of window manager
-navigation. with a simplistic design, labyrinth is entirely modifiable to match
-different workflows. 
 
 working: `dwm`
 
