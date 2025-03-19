@@ -25,47 +25,38 @@ alt + w ; I
 
 # [wm]
 
-#alt + w ; {j,k}
-# dwmc focusstack {+,-}1
+ alt + w ; {j,k}
+  dwmc focusstack {+,-}1
+# 
+# alt + q ; {j,k}
+#  dwmc focusstack {+,-}1
+# 
+# alt + w ; {h,l}
+#  dwmc setmfact {-,+}0.05
+# 
+# shift + space ; {u,i}
+#  dwmc setcfact {-,+}0.85
 
-#alt + q ; {j,k}
-# dwmc focusstack {+,-}1
-
-alt + {j,k}
- dwmc focusstack {+,-}1
-
-alt + w ; {h,l}
- dwmc setmfact {-,+}0.05
-
-shift + space ; {u,i}
- dwmc setcfact {-,+}0.85
-
-shift + space ; o 
- dwmc setcfact
-
-alt + w ; c 
- dwmc setlayoutex {0,1}
-
-alt + w ; b 
- dwmc togglebar
-
-alt + w ; {1-9}
- dwmc view {0-9}
-
-shift + space ; {1-9}
- dwmc tagex {0-9}
-
-alt + q ; {1-9}
- dwmc tagex {0-9}
-
-alt + w ; {D,W}
- dwmc {pushdown,pushup} 
-
-alt + {D,W}
- dwmc {pushdown,pushup} 
-
-alt + w ; space 
- dwmc togglemax
+# shift + space ; o 
+#  dwmc setcfact
+# 
+ alt + w ; {N,n}
+  {dunstctl history-pop,dunstctl close-all}
+# 
+# alt + w ; c 
+#  dwmc setlayoutex {0,1}
+# 
+ alt + w ; b 
+  dwmc togglebar
+# 
+# alt + w ; {1-9}
+#  dwmc view {0-9}
+# 
+ shift + space ; {1-9}
+  dwmc tagex {0-9}
+# 
+ shift + space ; space 
+  dwmc togglemax
 
 alt + w ; Return
  dwmc zoom
@@ -73,29 +64,19 @@ alt + w ; Return
 alt + w ; o
  dwmc zoom
 
-alt + w ; alt + w
- dwmc focusstack -1
-
-alt + q ; alt + q
- dwmc focusstack +1
-
 alt + w ; d 
  dwmc killclient
 
-alt + q ; q 
- dwmc killclient
-
 alt + w ; {n,N}  
-alt + w ; s  
- redshift {-O 2444,-x}
+ dunstctl {close-all,history-pop}
 
 # [tools]
 
-alt + w ; q 
- st
+alt + q ; space 
+ alacritty 
 
 alt + q ; e
- st -e nvim
+ alacritty
 
 alt + q ; colon
  python ~/cmdlaunch.py ""
@@ -114,13 +95,14 @@ alt + q ; c
  manuskript 
 
 alt + q ; n
- st -e newsboat
+ alacritty -e newsboat
 
 alt + q ; m 
- st -e ncmpcpp 
+ alacritty -e ncmpcpp 
 
-alt + q ; space
+alt + q ; C 
  armcord 
+
 # [productivity]  
 # quick productivity functions.
 
@@ -141,10 +123,10 @@ alt + w ; x
 alt + w ; P 
  python ~/cmdlaunch.py "pkill" 
 
-shift + space ; l  
+shift + space ; space  
  slock 
 
 # [config]
 
-alt + q ; slash
- st -e nvim ~/.config/sxhkd/vi
+alt + q ; shift + slash
+ alacritty -e vi ~/.config/sxhkd/vi

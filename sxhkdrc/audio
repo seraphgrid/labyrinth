@@ -20,41 +20,41 @@ alt + w ; ctrl + d
 #alt + q ; {j,k}
 # dwmc focusstack {+,-}1
 
-alt + {j,k}
- dwmc focusstack {+,-}1
-
-alt + w ; {j,k}
- dwmc focusstack {+,-}1
-
-alt + w ; {h,l}
- dwmc setmfact {-,+}0.05
-
-shift + space ; {u,i}
- dwmc setcfact {-,+}0.85
-
-shift + space ; o 
- dwmc setcfact
-
-alt + w ; L 
- dwmc setlayoutex {0,1}
-
-alt + w ; b 
- dwmc togglebar
-
-alt + w ; {1-9}
- dwmc view {0-9}
-
-shift + space ; {1-9}
- dwmc tagex {0-9}
-
-alt + q ; {1-9}
- dwmc tagex {0-9}
-
-alt + w ; {D,W}
- dwmc {pushdown,pushup} 
-
-alt + {D,W}
- dwmc {pushdown,pushup} 
+#alt + {j,k}
+# dwmc focusstack {+,-}1
+#
+#alt + w ; {j,k}
+# dwmc focusstack {+,-}1
+#
+#alt + w ; {h,l}
+# dwmc setmfact {-,+}0.05
+#
+#shift + space ; {u,i}
+# dwmc setcfact {-,+}0.85
+#
+#shift + space ; o 
+# dwmc setcfact
+#
+#alt + w ; L 
+# dwmc setlayoutex {0,1}
+#
+#alt + w ; b 
+# dwmc togglebar
+#
+#alt + w ; {1-9}
+# dwmc view {0-9}
+#
+#shift + space ; {1-9}
+# dwmc tagex {0-9}
+#
+#alt + q ; {1-9}
+# dwmc tagex {0-9}
+#
+#alt + w ; {D,W}
+# dwmc {pushdown,pushup} 
+#
+#alt + {D,W}
+# dwmc {pushdown,pushup} 
 
 alt + w ; space 
  dwmc togglemax
@@ -86,19 +86,19 @@ alt + w ; I
  rofi -show drun
 # [mpc]
 
-alt + q ; backslash ; {r,R} 
+alt + q ; backslash ; m ; {r,R} 
  mpc repeat {on,off}	
 
 alt + q ; backslash ; {s,S} 
  notify-send $(mpc single {on,off})	
 
-alt + q ; backslash ; p 
+alt + q ; backslash ; m ; p 
  mpc toggle	
 
-alt + q ; backslash ; c 
+alt + q ; backslash ; m ; c 
  notify-send "$(mpc current)" 
 
-alt + q ; backslash ; u 
+alt + q ; backslash ; m ; u 
  notify-send "$(mpc update)"
 
 # [tools] 
@@ -106,14 +106,14 @@ alt + q ; backslash ; u
 alt + w ; q
  st 
 
-alt + q ; W
- st -e emacs -nw ~/Music/lyrics/scratch.txt 
+alt + q ; E
+ st -e nvim ~/Music/lyrics/scratch.txt 
 
 alt + q ; f
  nicotine
 
-alt + q ; E
- renoise 
+alt + q ; D
+ bitwigstudio 
 
 alt + q ; r
  goodvibes
@@ -128,7 +128,7 @@ alt + q ; m
  st -e ncmpcpp
 
 alt + q ; U
- LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U
+ spotify --uri=%U
 
 alt + q ; a ; {c,b,a,d}  
  {pavucontrol,blueman-manager,friture,jamesdsp}

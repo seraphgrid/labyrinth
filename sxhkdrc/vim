@@ -1,43 +1,54 @@
-# intended for intricate user window management.
+# welcome to labyrinth - 0.1
+# labyrinth is a modal interface overlay for widow. 
+
 # [labyrinth]
 
-Tab ; v
- sh ~/labyrinth -V
+backslash ; v
+ sh labyrinth -V
 
-Tab ; a 
- sh ~/labyrinth -a 
+backslash ; a 
+ sh labyrinth -a 
 
-Tab ; n 
- sh ~/labyrinth -n 
+backslash ; n 
+ sh labyrinth -n 
 
-Tab ; y
- sh ~/labyrinth -s 
+backslash ; y
+ sh labyrinth -s 
 
-Tab ; t
- sh ~/labyrinth -t
+backslash ; t
+ sh labyrinth -t
 
-Tab ; x
- sh ~/labyrinth -H 
+backslash ; x
+ sh labyrinth -H 
 
-Tab ; w 
- sh ~/labyrinth -I 
+backslash ; w 
+ sh labyrinth -I 
 
 i 
- sh ~/labyrinth -I 
+ sh labyrinth -I 
 
 alt + Tab 
- sh ~/labyrinth -I 
+ sh labyrinth -I 
 
-Tab ; f
- sh ~/labyrinth -c 
+backslash ; c
+ sh labyrinth -c 
 
 # [wm]
+
+L 
+ slock
 
 space ; l  
  dwmc setlayoutex {0,1}
 
 space ; {1-9} 
  dwmc tagex {0-9}
+
+space ; n 
+ dwmc nametag
+
+space ; shift + 4 
+ dwmc togglesticky
 
 shift + space
  dwmc togglemax
@@ -48,8 +59,17 @@ shift + space
 {j,k}
  dwmc focusstack {+,-}1
 
-ctrl + {j,k}
+shift + 4  
+ redshift {-O 2444,-x}
+
+shift + {j,k}
  dwmc {pushdown,pushup}
+
+ctrl + {j,k}
+ dwmc setcfact {+,-}0.45
+
+equal
+ dwmc setcfact 
 
 n
  dunstctl close-all
@@ -59,12 +79,6 @@ N
 
 {l,h}
  dwmc setmfact {+,-}0.05
-
-{J,K}
- dwmc setcfact {+,-}0.45
-
-equal
- dwmc setcfact 
 
 o
  dwmc zoom
@@ -85,6 +99,7 @@ N
  dunstctl history-pop
 
 # kill windows. pleae. 
+
 d 
  dwmc killclient
 
@@ -102,6 +117,13 @@ f
 v
  hints -m scroll
 
+ctrl + f
+ warpd --hint
+
+ctrl + F
+ warpd
+
+
 # [menus]
 
 slash 
@@ -114,24 +136,21 @@ a
  spmenu
 
 colon
- sh labyrinth -I && python ~/cmdlaunch.py "" && sh ~/labyrinth -v
+  python ~/cmdlaunch.py "" 
 
 # [config] 
 
 
-backslash ; shift + slash
- st -e nvim ~/.config/sxhkd/vim   
-
 shift + slash
- xterm -hold -e less ~/Documents/lbykeyz.txt
+ alacritty -e vi ~/.config/sxhkd/vim   
 
 # [applications] 
 
 q
- st 
+ alacritty 
 
 backslash ; semicolon
- st -e $(xsel -b)
+ alacritty -e $(xsel -b)
 
 backslash ; m ; d
  sh labyrinth -I && python ~/cmdlaunch.py "mkdir -p" && sh labyrinth -v
@@ -151,14 +170,64 @@ backslash ; p ; q
 backslash ; p ; Q
  sh labyrinth -I && python ~/cmdlaunch.py "sudo pacman -Qs" && sh labyrinth -v
 
-backslash ; w
+w
  qutebrowser
 
-backslash ; e
- sh ~/labyrinth -I && python ~/cmdlaunch.py -n "st -e $EDITOR" && sh labyrinth -v
+p
+ nomacs
 
-backslash ; l 
- slock
+F
+ alacritty -e yazi
+
+m
+ alacritty -e cmus
+
+E
+ alacritty -e vi
+
+backslash ; e
+ sh ~/labyrinth -I && python ~/cmdlaunch.py -n "alacritty -e $EDITOR" && sh ~/labyrinth -v
 
 # need actual marking functionality.
 # $ometing need$ to allow u to mark a currently open file into the nromal mode config for being launched with grave then the letter.
+
+# [bookmarks]
+
+grave ; a 
+ sh labyrinth -I && firefox "https://duck.ai"
+
+grave ; m
+ sh labyrinth -I && alacritty -e ncmpcpp
+
+grave ; M
+ sh labyrinth -I && env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U
+
+grave ; f 
+ sh labyrinth -I && alacritty -e yazi
+
+grave ; k
+ screenkey
+
+grave ; K
+ pkill screenkey
+
+grave ; v
+ vokoscreenNG
+
+grave ; c
+ vesktop 
+
+grave ; d 
+ jamesdsp
+
+grave ; w
+ nitrogen
+
+grave ; C
+ rog-control-center
+
+grave ; g
+ alacritty -e nethack
+
+grave ; b 
+ blueman-manager
