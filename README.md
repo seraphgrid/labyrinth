@@ -1,9 +1,14 @@
 # labyrinth
-labyrinth is a modal desktop environment interface, built with typists and power users in mind, albeit deceptively minimal. 
 
-currently testing in: `dwm`
+`labyrinth` is the keybinding overlay to `widow`, a modal desktop environment.
+built atop `sxhkd`, this turns `widow` into a vim-like interface. this invites 
+focus towards the task at hand while enhancing various aspects of window manager
+navigation. with a simplistic design, labyrinth is entirely modifiable to match
+different workflows. 
 
-will be tested in: `ratpoison`
+working: `dwm`
+
+testing: `ratpoison`
 
 ## dependencies
 
