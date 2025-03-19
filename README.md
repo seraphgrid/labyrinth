@@ -8,7 +8,7 @@ will be tested in: `ratpoison`
 ## dependencies
 
 `sxhkd` |
-`hyprctl/dwmc/etc` |
+`dwmc` |
 `warpd` | 
 `python` |
 `hints` 
@@ -20,7 +20,7 @@ pro-tip: use `sed` if you want to make similar but sweeping changes to files.
 
 `cp -rv sxhkdrcs/* [sxhkd_dir]` 
 
-`labyrinth -v`
+`labyrinth`
 
 ## autostarting
 
