@@ -22,11 +22,3 @@ pro-tip: use `sed` if you want to make similar but sweeping changes to files.
 `cp -rv sxhkdrcs/* [sxhkd_dir]` 
 
 `labyrinth`
-
-## autostarting
-
-`cp -v sxhkdrc sxhkdrc_bak`
-
-`cp -v vim sxhkdrc`
-
-`sxhkd`
