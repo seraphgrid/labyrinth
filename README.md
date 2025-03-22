@@ -1,6 +1,6 @@
 # labyrinth
 
-`labyrinth` is the keybinding overlay to `widow`, a modal desktop environment.
+`labyrinth` is the keybinding overlay to `widow`.
 
 working: `dwm`
 
