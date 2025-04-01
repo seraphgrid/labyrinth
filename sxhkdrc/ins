@@ -13,6 +13,9 @@ alt + Tab
 Escape 
  labyrinth -v
 
+Super_L
+ labyrinth -I
+
 #alt + w
 # sh ~/escape_send.sh
 
@@ -176,4 +179,4 @@ alt + o ; P
 # [config]
 
 alt + o ; comma
- st -e vi ~/.config/sxhkd/vi
+ st -e vi ~/.config/sxhkd/ins
