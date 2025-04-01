@@ -4,7 +4,7 @@
 
 working: `dwm`
 
-testing: `ratpoison`
+testing: `ratpoison` -- (04/01/2025 - Not having fun.)
 
 ## dependencies
 
