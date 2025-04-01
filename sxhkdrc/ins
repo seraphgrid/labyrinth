@@ -16,6 +16,9 @@ Escape
 Super_L
  labyrinth -I
 
+Tab 
+ labyrinth -I 
+
 #alt + w
 # sh ~/escape_send.sh
 
@@ -25,7 +28,7 @@ alt + o ; backslash ; v
 # [nav]
 
 alt + o ; e
- rofi -show window -kb-element-prev 'shift-space' -kb-element-next 'space' -kb-accept-entry 'w'
+ rofi -show window -kb-element-prev 'k' -kb-element-next 'j' -kb-accept-entry 'space'
 
 alt + o ; i
  rofi -show drun
@@ -179,4 +182,4 @@ alt + o ; P
 # [config]
 
 alt + o ; comma
- st -e vi ~/.config/sxhkd/ins
+ st -e nvim ~/.config/sxhkd/ins

@@ -9,10 +9,10 @@ shift + space
 Super_L ; v
  sh labyrinth -V
 
-a 
+space ; a 
  sh labyrinth -a
 
-Super_L ; n 
+space ; n 
  sh labyrinth -n 
 
 Super_L ; y
@@ -29,6 +29,12 @@ Super_L ; w
 
 i 
  sh labyrinth -i 
+
+I 
+ sh labyrinth -I 
+
+w 
+ sh labyrinth -I 
 
 Tab
  sh labyrinth -I 
@@ -136,7 +142,7 @@ v
 # [menus]
 
 e 
- rofi -show window -kb-element-prev 'shift-space' -kb-element-next 'space' -kb-accept-entry 'e'
+ rofi -show window -kb-element-prev 'k' -kb-element-next 'j' -kb-accept-entry 'i'
  
 colon
  spmenu
@@ -150,7 +156,7 @@ exclam
 # [config] 
 
 comma
- st -e vi ~/.config/sxhkd/vim   
+ st -e nvim ~/.config/sxhkd/vim   
 
 # [applications] 
 

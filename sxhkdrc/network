@@ -1,0 +1,96 @@
+# [main] 
+
+Escape
+ labyrinth -v
+
+i
+ labyrinth -i
+
+Tab
+ labyrinth -I
+
+# [applications]
+
+p
+ xterm -hold -e ping 9.9.9.9 -c 8 
+
+v ; c
+ notify-send "$(mullvad connect)"
+
+v ; d
+ notify-send "$(mullvad disconnect)"
+
+v ; r 
+ notify-send "$(mullvad reconnect)"
+
+v ; d 
+ notify-send "$(mullvad disconnect)"
+
+V
+ notify-send "$(mullvad status)"
+
+P
+ xterm -hold -e "netstat -tuln"
+
+alt + q ; colon
+ python ~/cmdlaunch.py ""
+
+shift + 4
+ st
+
+ctrl + p
+ python ~/cmdlaunch.py nmap -sP
+
+n ; m 
+ xterm -hold -e sudo bandwhich
+
+M
+ wireshark
+
+backslash ; p
+ python ~/cmdlaunch.py "sudo pacman -S"
+
+backslash ; u
+ python ~/cmdlaunch.py "sudo pacman -Syu"
+
+I
+ st -e sudo ifconfig wlp2s0 {up,down}
+
+ctrl + i
+ xterm -hold -e ifconfig -a 
+
+{w,W}
+ {qutebrowser,torbrowser-launcher}
+
+d
+ python ~/cmdlaunch.py "dig @127.0.0.1 +dnssec"
+
+E
+ sudo nvim /etc/network/interfaces
+
+n ; i 
+ xterm -hold -e sudo iftop
+
+z ; w
+ python ~/cmdlaunch.py "whois"
+
+t
+ python ~/cmdlaunch.py "traceroute" 
+
+z ; t 
+ python ~/cmdlaunch.py "tcpdump -i"
+
+m 
+ xterm -hold -e mitmproxy
+
+alt + q ; E
+ exec /home/hexe/Applications/eDEX-UI-Linux-x86_64_eecd3a9dec6a5328bb312833d8ae1604.AppImage 
+
+f
+ xterm -hold -e spiderfoot -l 127.0.0.1:7777"
+
+ctrl + m
+ xterm -hold -e metasploit-framework.msfconsole
+ 
+comma
+ st -e nvim ~/.config/sxhkd/network
