@@ -16,9 +16,6 @@ Super_L
 #Escape 
 # labyrinth -v
 
-alt + w
- sh ~/escape_send.sh
-
 alt + o ; backslash ; v
  labyrinth -V
 
@@ -179,4 +176,5 @@ alt + o ; P
 # [config]
 
 alt + o ; comma
- st -e vi ~/.config/sxhkd/vi
+ st -e nvim ~/.config/sxhkd/vi
+

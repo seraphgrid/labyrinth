@@ -155,10 +155,10 @@ comma
 # [applications] 
 
 Print
- scrot -s '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/'
+ scrot -s '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/' -e 'xclip -selection clipboard -t image/png -i $f'
 
 shift + Print
- scrot -f '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/'
+ scrot -f '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/' -e 'xclip -selection clipboard -t image/png -i $f'
 
 shift + 4
  st 
