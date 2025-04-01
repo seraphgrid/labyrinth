@@ -10,14 +10,11 @@ alt + Tab
 # normal
  labyrinth -v
 
-Super_L
+Escape 
  labyrinth -v
 
-#Escape 
-# labyrinth -v
-
-alt + w
- sh ~/escape_send.sh
+#alt + w
+# sh ~/escape_send.sh
 
 alt + o ; backslash ; v
  labyrinth -V

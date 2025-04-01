@@ -1,36 +1,39 @@
-# welcome to labyrinth - 0.1
+# labyrinth 0.1
 # labyrinth is a modal interface overlay for widow. 
 
 # [labyrinth]
 
-backslash ; v
+shift + space
+ labyrinth -v 
+
+Super_L ; v
  sh labyrinth -V
 
-backslash ; a 
- sh labyrinth -a 
+a 
+ sh labyrinth -a
 
-backslash ; n 
+Super_L ; n 
  sh labyrinth -n 
 
-backslash ; y
+Super_L ; y
  sh labyrinth -s 
 
-backslash ; t
+Super_L ; t
  sh labyrinth -t
 
-backslash ; x
+Super_L ; x
  sh labyrinth -H 
 
-backslash ; w 
+Super_L ; w 
  sh labyrinth -I 
 
 i 
+ sh labyrinth -i 
+
+Tab
  sh labyrinth -I 
 
-alt + Tab 
- sh labyrinth -I 
-
-backslash ; c
+Super_L ; c
  sh labyrinth -c 
 
 # [wm]
@@ -38,31 +41,40 @@ backslash ; c
 L 
  slock
 
-space ; l  
+shift + grave
  dwmc setlayoutex {0,1}
 
 space ; {1-9} 
- dwmc tagex {0-9}
+ dwmc tagex {0-8}
 
-space ; n 
+space ; {g ; g,G}
+ dwmc tagex {0,8}
+
+{g ; g,G}
+ dwmc viewex {0,8}
+
+ctrl + w ; n 
  dwmc nametag
 
-space ; shift + 4 
+ctrl + w ; shift + 4 
  dwmc togglesticky
 
-shift + space
+shift + grave
  dwmc togglemax
 
 {1-9} 
- dwmc view {0-9}
+ dwmc viewex {0-8}
 
 {j,k}
  dwmc focusstack {+,-}1
 
-shift + 4  
+shift + F8
  redshift {-O 2444,-x}
 
-shift + {j,k}
+ctrl + w ; {j,k}
+ dwmc rotatestack 1{+,-}
+
+{J,K}
  dwmc {pushdown,pushup}
 
 ctrl + {j,k}
@@ -71,26 +83,19 @@ ctrl + {j,k}
 equal
  dwmc setcfact 
 
-n
- dunstctl close-all
-
-N 
- dunstctl history-pop
-
 {l,h}
  dwmc setmfact {+,-}0.05
 
-o
- dwmc zoom
-
-r 
- dwmc focusmaster
-
-e
+z
  dwmc zoom
 
 W 
  dwmc togglebar
+
+c ; w
+ dwmc killclient; \
+ spmenu; \
+ labyrinth -I
 
 n
  dunstctl close-all
@@ -100,93 +105,99 @@ N
 
 # kill windows. pleae. 
 
-d 
+q 
  dwmc killclient
 
-backslash ; q 
+Q
  dwmc quit
 
-x 
+d 
  python ~/cmdlaunch.py -n "pkill -f"
+
+#r
+
+x
+ xkill
 
 # warpd
 
 f
- hints
+ hints 
 
-v
+F
  hints -m scroll
 
-ctrl + f
+V
  warpd --hint
 
-ctrl + F
- warpd
-
+v
+ warpd --normal
 
 # [menus]
 
-slash 
- rofi -show window -kb-element-prev 'k' -kb-element-next 'j' -kb-accept-entry 'o'
+e 
+ rofi -show window -kb-element-prev 'shift-space' -kb-element-next 'space' -kb-accept-entry 'e'
  
-I
- rofi -show drun
-
-a
+colon
  spmenu
 
-colon
-  python ~/cmdlaunch.py "" 
+backslash ; a
+ pavucontrol
+
+exclam
+  python ~/cmdlaunch.py -n "" 
 
 # [config] 
 
-
-shift + slash
- alacritty -e vi ~/.config/sxhkd/vim   
+comma
+ st -e vi ~/.config/sxhkd/vim   
 
 # [applications] 
 
-q
- alacritty 
+Print
+ scrot -s '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/'
+
+shift + Print
+ scrot -f '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/'
+
+shift + 4
+ st 
+
+{F7,F8}
+ brightnessctl set 20%{-,+}
+
+ctrl + w ; w
+ nitrogen
 
 backslash ; semicolon
- alacritty -e $(xsel -b)
+ st -e $(xsel -b)
 
-backslash ; m ; d
- sh labyrinth -I && python ~/cmdlaunch.py "mkdir -p" && sh labyrinth -v
+backslash ; comma
+ st -e nvim ~/Documents/configs/widow/widow/config.h
 
-backslash ; r ; d
- sh labyrinth -I && python ~/cmdlaunch.py "rmdir -p" && sh labyrinth -v
+backslash ; e 
+ st -e nvim
 
-backslash ; p ; i
- sh labyrinth -I && python ~/cmdlaunch.py "sudo pacman -Syu" && sh labyrinth -v
-
-backslash ; p ; I
- sh labyrinth -I && python ~/cmdlaunch.py "yay -S" && sh labyrinth -v 
-
-backslash ; p ; q
- sh labyrinth -I && python ~/cmdlaunch.py "yay -Qs" && sh labyrinth -v
-
-backslash ; p ; Q
- sh labyrinth -I && python ~/cmdlaunch.py "sudo pacman -Qs" && sh labyrinth -v
-
-w
+backslash ; w
  qutebrowser
 
-p
+backslash ; p
  nomacs
 
-F
- alacritty -e yazi
+backslash ; P
+ st -e glances
 
-m
- alacritty -e cmus
+backslash ; f
+ st -e ranger
 
-E
- alacritty -e vi
+backslash ; m
+ st -e cmus
 
-backslash ; e
- sh ~/labyrinth -I && python ~/cmdlaunch.py -n "alacritty -e $EDITOR" && sh ~/labyrinth -v
+backslash ; v
+ vokoscreenNG
+
+backslash ; k
+ screenkey
 
 # need actual marking functionality.
 # $ometing need$ to allow u to mark a currently open file into the nromal mode config for being launched with grave then the letter.
@@ -196,38 +207,31 @@ backslash ; e
 grave ; a 
  sh labyrinth -I && firefox "https://duck.ai"
 
-grave ; m
- sh labyrinth -I && alacritty -e ncmpcpp
-
 grave ; M
- sh labyrinth -I && env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U
+ env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U
 
 grave ; f 
- sh labyrinth -I && alacritty -e yazi
+ sh labyrinth -I && st -e yazi
 
 grave ; k
- screenkey
-
-grave ; K
  pkill screenkey
 
-grave ; v
- vokoscreenNG
+backslash ; c
+ armcord 
 
-grave ; c
- vesktop 
-
-grave ; d 
+backslash ; d 
  jamesdsp
-
-grave ; w
- nitrogen
 
 grave ; C
  rog-control-center
 
 grave ; g
- alacritty -e nethack
+ st -e nethack
 
 grave ; b 
  blueman-manager
+
+grave ; y
+ st -e "yt-dlp -f bestaudio --extract-audio --audio-format
+ mp3 --audio-quality 0 -o '~/Music/collection/rnd/%(title)s.%(e
+xt)s' $(xsel -b)"

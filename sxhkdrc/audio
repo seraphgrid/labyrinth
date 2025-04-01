@@ -1,181 +1,60 @@
-# [labyrinth]
+Escape
+ labyrinth -v
 
-alt + w ; e 
-# vim 
- sh ~/labyrinth -v
+i
+ labyrinth -i
 
-alt + w ; i  
-# audio
- sh ~/labyrinth -I
+shift + space 
+ labyrinth -a 
 
-alt + w ; ctrl + d 
-# config
- sh ~/labyrinth -c
+comma
+ st -e nvim ~/.config/sxhkd/audio
 
-# [wm]
+{j,k}
+ amixer -D pulse sset Master 5%{-,+}
 
-#alt + w ; {j,k}
-# dwmc focusstack {+,-}1
-#
-#alt + q ; {j,k}
-# dwmc focusstack {+,-}1
+u
+ st -e beet import '~/Music/collection/genre'; \
+ st -e beet write; \
+ beet update; \
+ mpc update 
 
-#alt + {j,k}
-# dwmc focusstack {+,-}1
-#
-#alt + w ; {j,k}
-# dwmc focusstack {+,-}1
-#
-#alt + w ; {h,l}
-# dwmc setmfact {-,+}0.05
-#
-#shift + space ; {u,i}
-# dwmc setcfact {-,+}0.85
-#
-#shift + space ; o 
-# dwmc setcfact
-#
-#alt + w ; L 
-# dwmc setlayoutex {0,1}
-#
-#alt + w ; b 
-# dwmc togglebar
-#
-#alt + w ; {1-9}
-# dwmc view {0-9}
-#
-#shift + space ; {1-9}
-# dwmc tagex {0-9}
-#
-#alt + q ; {1-9}
-# dwmc tagex {0-9}
-#
-#alt + w ; {D,W}
-# dwmc {pushdown,pushup} 
-#
-#alt + {D,W}
-# dwmc {pushdown,pushup} 
+{J,K}
+ playerctl --player=mpd,spotify,%any,chromium volume 0.1{-,+}
 
-alt + w ; space 
- dwmc togglemax
+q 
+ playerctl --player=mpd,spotify,%any,chromium play-pause
 
-alt + w ; Return
- dwmc zoom
+{w,b}
+ notify-send "$(playerctl --player=mpd,spotify,%any,chromium {next,previous})"
 
-alt + w ; o
- dwmc zoom
+shift + 4 
+ notify-send "$(playerctl metadata)"
 
-alt + w ; alt + w
- dwmc focusstack -1
+o
+ pavucontrol 
 
-alt + q ; alt + q
- dwmc focusstack +1
-
-alt + w ; d 
- dwmc killclient
-
-alt + w ; {n,N}  
- dunstctl {close-all,history-pop}
-
-# [warpd]
-
-alt + w ; slash
- rofi -show window -kb-element-prev 'k' -kb-element-next 'j' -kb-accept-entry 'o'
-
-alt + w ; I 
- rofi -show drun
-# [mpc]
-
-alt + q ; backslash ; m ; {r,R} 
- mpc repeat {on,off}	
-
-alt + q ; backslash ; {s,S} 
- notify-send $(mpc single {on,off})	
-
-alt + q ; backslash ; m ; p 
- mpc toggle	
-
-alt + q ; backslash ; m ; c 
- notify-send "$(mpc current)" 
-
-alt + q ; backslash ; m ; u 
- notify-send "$(mpc update)"
-
-# [tools] 
-
-alt + w ; q
- st 
-
-alt + q ; E
- st -e nvim ~/Music/lyrics/scratch.txt 
-
-alt + q ; f
- nicotine
-
-alt + q ; D
- bitwigstudio 
-
-alt + q ; r
+R
  goodvibes
 
-alt + q ; d
- jamesdsp
+a
+ st -e alsamixer
 
-#alt + q ; e
-# goodvibes
+A
+ friture
 
-alt + q ; m 
- st -e ncmpcpp
+B
+ blueman-manager
 
-alt + q ; U
- spotify --uri=%U
+d 
+ jamesdsp 
 
-alt + q ; a ; {c,b,a,d}  
- {pavucontrol,blueman-manager,friture,jamesdsp}
+m 
+ st -e cmus
 
-alt + q ; ctrl + b
- qutebrowser "https://photon-reddit.com/r/Piracy/wiki/megathread/music/"
+backslash ; e
+ st -e "sudo nvim /usr/share/pipewire/pipewire.conf"
 
-# needs special behavior for creating directories blind with prepended paths.
-
-alt + q ; p
- python ~/cmdlaunch.py "yay -a --noconfirm" 
-
-alt + q ; P
- python ~/cmdlaunch.py "sudo pacman -S --noconfirm" 
-
-# [yt-dlp] 
-
-alt + q ; ctrl + D
- python ~/cmdlaunch.py -d "$HOME/Music/collection/rnd" "yt-dlp"
-
-# [beets]
-
-alt + q ; e ; i
- python ~/cmdlaunch.py -d "$HOME/Music/collection/genre" "beet import"
-
-alt + q ; e ; l  
- python ~/cmdlaunch.py "beet list"
-
-alt + q ; e ; m 
- python ~/cmdlaunch.py "beet modify"
-
-alt + q ; e ; M 
- python ~/cmdlaunch.py "beet move"
-
-alt + q ; e ; u 
- python ~/cmdlaunch.py "beet update"
-
-alt + q ; e ; f 
- python ~/cmdlaunch.py "beet fields"
-
-alt + q ; e ; s
- python ~/cmdlaunch.py "beet stats"
-
-# [orpheus]
-
-
-# [config]
-
-alt + q ; shift + slash
- st -e nvim ~/.config/sxhkd/audio
+y
+ st -e bash -c "yt-dlp --embed-metadata -x --audio-format opus --audio-quality 0 -o '~/music/collection/rnd/%(title)s.%(ext)s' $(xsel -b)"
+ 
