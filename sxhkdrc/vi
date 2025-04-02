@@ -1,3 +1,12 @@
+alt + o ; w
+ labyrinth -v
+
+alt + w
+ labyrinth -v
+
+alt + o ; Escape
+ labyrinth -v
+
 alt + o ; a
 # audio
  labyrinth -a
@@ -22,7 +31,7 @@ alt + o ; backslash ; v
 # [nav]
 
 alt + o ; e
- rofi -show window -kb-element-prev 'shift-space' -kb-element-next 'space' -kb-accept-entry 'w'
+ rofi -show window -kb-element-prev 'k' -kb-element-next 'j' -kb-accept-entry 'o'
 
 alt + o ; i
  rofi -show drun
@@ -122,12 +131,15 @@ shift + Print
  scrot -f '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/' -e 'xclip -selection clipboard -t image/png -i $f'
 
 alt + o ; shift + 4
- st
+ labyrterm
 
 alt + q ; space
- st -e vi
+ labyrterm "-e vi"
 
-alt + q ; colon
+alt + o ; colon
+ spmenu
+
+alt + o ; exclam
  python ~/cmdlaunch.py ""
 
 alt + q ; {w,W}
@@ -144,10 +156,10 @@ alt + q ; k
  manuskript 
 
 alt + q ; n
- st -e newsboat
+ labyrterm "-e newsboat"
 
 alt + q ; m 
- st -e cmus 
+ labyrterm "-e cmus"
 
 alt + q ; C 
  vesktop 
@@ -176,5 +188,5 @@ alt + o ; P
 # [config]
 
 alt + o ; comma
- st -e nvim ~/.config/sxhkd/vi
+ labyrterm "-e nvim ~/.config/sxhkd/vi"
 

@@ -4,6 +4,9 @@ Escape
 i
  labyrinth -i
 
+w
+ labyrinth -I
+
 shift + space 
  labyrinth -a 
 
@@ -21,6 +24,9 @@ u
 
 {J,K}
  playerctl --player=mpd,spotify,%any,chromium volume 0.1{-,+}
+
+{h,l}
+ playerctl --player=mpd,spotify,%any,chromium position 0.3{-,+}
 
 q 
  playerctl --player=mpd,spotify,%any,chromium play-pause
@@ -56,5 +62,5 @@ backslash ; e
  st -e "sudo nvim /usr/share/pipewire/pipewire.conf"
 
 y
- st -e bash -c "yt-dlp --embed-metadata -x --audio-format opus --audio-quality 0 -o '~/music/collection/rnd/%(title)s.%(ext)s' $(xsel -b)"
+ st -e bash -c "yt-dlp --embed-metadata -x --audio-format opus --audio-quality 0 -o '~/Music/collection/rnd/%(title)s.%(ext)s' $(xsel -b)"
  

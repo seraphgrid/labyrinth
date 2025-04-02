@@ -1,4 +1,3 @@
-# labyrinth 0.1
 # labyrinth is a modal interface overlay for widow. 
 
 # [labyrinth]
@@ -9,7 +8,7 @@ shift + space
 Super_L ; v
  sh labyrinth -V
 
-space ; a 
+a
  sh labyrinth -a
 
 space ; n 
@@ -36,10 +35,45 @@ I
 w 
  sh labyrinth -I 
 
-Tab
+Super_L ; c
+ sh labyrinth -c 
+
+shift + space
+ labyrinth -v 
+
+# [Super_R]
+
+Super_R ; v
+ sh labyrinth -V
+
+space ; a 
+ sh labyrinth -a
+
+space ; n 
+ sh labyrinth -n 
+
+Super_R ; y
+ sh labyrinth -s 
+
+Super_R ; t
+ sh labyrinth -t
+
+Super_R ; x
+ sh labyrinth -H 
+
+Super_R ; w 
  sh labyrinth -I 
 
-Super_L ; c
+i 
+ sh labyrinth -i 
+
+I 
+ sh labyrinth -I 
+
+w 
+ sh labyrinth -I 
+
+Super_R ; c
  sh labyrinth -c 
 
 # [wm]
@@ -142,7 +176,7 @@ v
 # [menus]
 
 e 
- rofi -show window -kb-element-prev 'k' -kb-element-next 'j' -kb-accept-entry 'i'
+ rofi -show window -kb-element-prev 'k' -kb-element-next 'j' -kb-accept-entry 'o'
  
 colon
  spmenu
@@ -167,37 +201,40 @@ shift + Print
  scrot -f '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/' -e 'xclip -selection clipboard -t image/png -i $f'
 
 shift + 4
- st 
+ labyrterm
 
 {F7,F8}
  brightnessctl set 20%{-,+}
 
-ctrl + w ; w
+backslash ; w
  nitrogen
 
 backslash ; semicolon
- st -e $(xsel -b)
+ labyrterm "-e $(xsel -b)"
 
 backslash ; comma
- st -e nvim ~/Documents/configs/widow/widow/config.h
+ labyrterm "-e nvim $HOME/.widow/config.h"
+
+backslash ; period
+ labyrterm "-e cd $HOME/.widow/"
 
 backslash ; e 
- st -e nvim
+ labyrterm "-e nvim"
 
-backslash ; w
- qutebrowser
+backslash ; v 
+ labyrterm "-e cmatrix -C white"
 
 backslash ; p
  nomacs
 
 backslash ; P
- st -e glances
+ labyrterm "-e glances"
 
 backslash ; f
- st -e ranger
+ labyrterm "-e ranger"
 
 backslash ; m
- st -e cmus
+ labyrterm "-e cmus"
 
 backslash ; v
  vokoscreenNG
@@ -213,11 +250,8 @@ backslash ; k
 grave ; a 
  sh labyrinth -I && firefox "https://duck.ai"
 
-grave ; M
- env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U
-
 grave ; f 
- sh labyrinth -I && st -e yazi
+ sh labyrinth -I && labyrterm "-e yazi"
 
 grave ; k
  pkill screenkey
@@ -232,10 +266,7 @@ grave ; C
  rog-control-center
 
 grave ; g
- st -e nethack
-
-grave ; b 
- blueman-manager
+ labyrterm "-e nethack"
 
 grave ; y
  st -e "yt-dlp -f bestaudio --extract-audio --audio-format
