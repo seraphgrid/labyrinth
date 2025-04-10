@@ -135,6 +135,9 @@ z
 W 
  dwmc togglebar
 
+c ; f
+ labyrinth -i && python ~/cmdlaunch.py "pkill -f" && python ~/cmdlaunch.py -n ""
+
 c ; w
  dwmc killclient; \
  spmenu; \
@@ -200,8 +203,6 @@ exclam
 comma
  labyrinth -e && labyrinth -I
 
-period
- labyrtool -E "rm -rf ~/.local/share/recently-used.xbel"
 
 # [applications] 
 
@@ -210,9 +211,6 @@ Print
 
 Shift + Print
  labyrtool -sf
-
-ctrl + Print
- labyrtool -sc
 
 shift + 4
  labyrtool -t
@@ -251,7 +249,7 @@ backslash ; b
  labyrinth -I && labyrtool -b 
 
 backslash ; m
- labyrtool -m
+ labyrtool -m && labyrinth -I
 
 backslash ; v
  vokoscreenNG
@@ -268,10 +266,10 @@ grave ; e
 # [bookmarks]
 
 grave ; a 
- labyrinth -I && labyrweb "https://duck.ai"
+ labyrinth -I && labyrtool -b "https://duck.ai" 
 
 grave ; f 
- labyrinth -I && labyrterm "-e yazi"
+ labyrinth -I && labyrtool -E yazi
 
 grave ; k
  pkill screenkey
@@ -287,6 +285,9 @@ grave ; C
 
 grave ; g
  labyrterm "-e nethack"
+
+grave + period
+ labyrtool -E "rm -rf ~/.local/share/recently-used.xbel"
 
 grave ; y
  st -e "yt-dlp -f bestaudio --extract-audio --audio-format

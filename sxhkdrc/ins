@@ -16,9 +16,6 @@ Escape
 Super_L
  labyrinth -I
 
-Tab 
- labyrinth -I 
-
 #alt + w
 # sh ~/escape_send.sh
 
@@ -28,10 +25,13 @@ alt + o ; backslash ; v
 # [nav]
 
 alt + o ; e
- rofi -show window -kb-element-prev 'k' -kb-element-next 'j' -kb-accept-entry 'space'
+ rofi -show window -kb-element-prev 'k' -kb-element-next 'j' -kb-accept-entry 'o'
 
 alt + o ; i
  rofi -show drun
+
+alt + o ; exclam
+ python ~/cmdlaunch.py -n ""
 
 # [wm]
 
@@ -128,10 +128,10 @@ shift + Print
  scrot -f '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/' -e 'xclip -selection clipboard -t image/png -i $f'
 
 alt + o ; shift + 4
- st
+ labyrtool -t 
 
-alt + q ; space
- st -e vi
+alt + q ; e
+ labyrtool -e
 
 alt + q ; colon
  python ~/cmdlaunch.py ""
@@ -150,13 +150,13 @@ alt + q ; k
  manuskript 
 
 alt + q ; n
- st -e newsboat
+ labyrtool -E newsboat
 
 alt + q ; m 
- st -e cmus 
+ labyrtool -m
 
 alt + q ; C 
- vesktop 
+ equibop 
 
 # [productivity]  
 # quick productivity functions.
@@ -177,9 +177,9 @@ alt + o ; x
  xkill 
 
 alt + o ; P 
- python ~/cmdlaunch.py "pkill" 
+ python ~/cmdlaunch.py "pkill -f" 
 
 # [config]
 
 alt + o ; comma
- st -e nvim ~/.config/sxhkd/ins
+ labyrinth -e 
