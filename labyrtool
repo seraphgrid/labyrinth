@@ -63,9 +63,4 @@ case "$1" in
 
         ;;
 
-    -sc)
-        selection=$(hacksaw -f "-i %i -g %g")
-        shotgun $selection - | xclip -t 'image/png' -selection clipboard && shotgun $selection &
-
-        ;;
 esac 
