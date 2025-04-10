@@ -6,37 +6,37 @@ shift + space
  labyrinth -v 
 
 Super_L ; v
- sh labyrinth -V
+ labyrinth -V
 
 a
- sh labyrinth -a
+ labyrinth -a
 
 space ; n 
- sh labyrinth -n 
+ labyrinth -n 
 
 Super_L ; y
- sh labyrinth -s 
+ labyrinth -s 
 
 Super_L ; t
- sh labyrinth -t
+ labyrinth -t
 
 Super_L ; x
- sh labyrinth -H 
+ labyrinth -H 
 
 Super_L ; w 
- sh labyrinth -I 
+ labyrinth -I 
 
 i 
- sh labyrinth -i 
+ labyrinth -i 
 
 I 
- sh labyrinth -I 
+ labyrinth -I 
 
 w 
- sh labyrinth -I 
+ labyrinth -I 
 
 Super_L ; c
- sh labyrinth -c 
+ labyrinth -c 
 
 shift + space
  labyrinth -v 
@@ -102,6 +102,9 @@ ctrl + w ; shift + 4
 shift + grave
  dwmc togglemax
 
+F11
+ dwmc togglebar
+
 {1-9} 
  dwmc viewex {0-8}
 
@@ -152,9 +155,14 @@ Q
  dwmc quit
 
 d 
- python ~/cmdlaunch.py -n "pkill -f"
+ labyrinth -i && python ~/cmdlaunch.py -n "pkill -f" && labyrinth -v 
 
-#r
+c ; t
+ xdotool keydown "Ctrl+c"
+
+p
+ xdotool keydown "Ctrl+v"; \
+ sleep 1
 
 x
  xkill
@@ -177,7 +185,7 @@ v
 
 e 
  rofi -show window -kb-element-prev 'k' -kb-element-next 'j' -kb-accept-entry 'o'
- 
+
 colon
  spmenu
 
@@ -185,23 +193,29 @@ backslash ; a
  pavucontrol
 
 exclam
-  python ~/cmdlaunch.py -n "" 
+  labyrinth -i && python ~/cmdlaunch.py -n "" && labyrinth -v
 
 # [config] 
 
 comma
- st -e nvim ~/.config/sxhkd/vim   
+ labyrinth -e && labyrinth -I
+
+period
+ labyrtool -E "rm -rf ~/.local/share/recently-used.xbel"
 
 # [applications] 
 
 Print
- scrot -s '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/' -e 'xclip -selection clipboard -t image/png -i $f'
+ labyrtool -ss
 
-shift + Print
- scrot -f '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/' -e 'xclip -selection clipboard -t image/png -i $f'
+Shift + Print
+ labyrtool -sf
+
+ctrl + Print
+ labyrtool -sc
 
 shift + 4
- labyrterm
+ labyrtool -t
 
 {F7,F8}
  brightnessctl set 20%{-,+}
@@ -210,31 +224,34 @@ backslash ; w
  nitrogen
 
 backslash ; semicolon
- labyrterm "-e $(xsel -b)"
+ labyrtool -E "$(xsel -b)"
 
 backslash ; comma
- labyrterm "-e nvim $HOME/.widow/config.h"
+ labyrtool -e "$HOME/.widow/config.h"
 
 backslash ; period
- labyrterm "-e cd $HOME/.widow/"
+ labyrtool -E "cd $HOME/.widow/ && make -j4 && sudo make clean install"
 
 backslash ; e 
- labyrterm "-e nvim"
+ labyrtool -e
 
 backslash ; v 
- labyrterm "-e cmatrix -C white"
+ labyrtool -E "cmatrix -C white"
 
-backslash ; p
- nomacs
+backslash ; g
+ labyrtool -g
 
 backslash ; P
- labyrterm "-e glances"
+ labyrtool -E glances
 
 backslash ; f
- labyrterm "-e ranger"
+ labyrtool -E ranger
+
+backslash ; b
+ labyrinth -I && labyrtool -b 
 
 backslash ; m
- labyrterm "-e cmus"
+ labyrtool -m
 
 backslash ; v
  vokoscreenNG
@@ -242,22 +259,25 @@ backslash ; v
 backslash ; k
  screenkey
 
+grave ; e 
+ labyrtool -e "$HOME/emilia.txt"
+
 # need actual marking functionality.
 # $ometing need$ to allow u to mark a currently open file into the nromal mode config for being launched with grave then the letter.
 
 # [bookmarks]
 
 grave ; a 
- sh labyrinth -I && firefox "https://duck.ai"
+ labyrinth -I && labyrweb "https://duck.ai"
 
 grave ; f 
- sh labyrinth -I && labyrterm "-e yazi"
+ labyrinth -I && labyrterm "-e yazi"
 
 grave ; k
  pkill screenkey
 
 backslash ; c
- armcord 
+ equibop 
 
 backslash ; d 
  jamesdsp
