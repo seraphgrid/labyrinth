@@ -1,0 +1,71 @@
+#!/bin/bash
+
+LABYRDIR="$HOME/.labyrinth/"
+LABYRTERM="alacritty -e nvim -c terminal"
+LABYRMU="ghostty -e ncmpcpp"
+LABYRTERM2='ghostty'
+MUREMOTE="mpd"
+MUDL="yt-dlp --embed-metadata -x --audio-format opus --audio-quality 0 -o '~/Music/collection/rnd/%(title)s.%(ext)s' $(xsel -b)"
+LABYREDIT="$LABYRTERM2 -e nvim"
+LABYRGAL='nomacs'
+LABYRDAW='reaper'
+LABYRWEB='qutebrowser'
+LABYRWAL='nitrogen'
+
+case "$1" in
+
+    -g) 
+        exec $LABYRGAL $2 &
+        ;;
+
+    -m)
+        exec $LABYRMU $2 & 
+        ;;
+
+    -mr) 
+
+        exec $MUREMOTE $2 &
+        ;;
+
+    -dv)
+        exec $LABYRTERM2 $MUDL &
+        ;;
+
+    -e)
+        exec $LABYREDIT $2 &
+        ;;
+
+    -E)
+
+        exec $LABYRTERM2 -e $2 &
+        ;;
+
+    -t)
+        exec $LABYRTERM $2 &
+        ;;
+
+    -w)
+        exec $LABYRWAL $2 &
+        ;;
+
+    -b)
+        exec $LABYRWEB $2 &
+        ;;
+
+    -sf)
+        shotgun -s - | xclip -t 'image/png' -selection clipboard && shotgun -s &
+        ;;
+
+
+    -ss)
+        selection=$(hacksaw -f "-i %i -g %g")
+        shotgun $selection - | xclip -t 'image/png' -selection clipboard && shotgun $selection &
+
+        ;;
+
+    -sc)
+        selection=$(hacksaw -f "-i %i -g %g")
+        shotgun $selection - | xclip -t 'image/png' -selection clipboard && shotgun $selection &
+
+        ;;
+esac 
