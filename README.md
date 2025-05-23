@@ -4,8 +4,6 @@
 
 working: `dwm`
 
-testing: `ratpoison` -- (04/01/2025 - Not having fun.)
-
 ## dependencies
 
 `sxhkd` |
