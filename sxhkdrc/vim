@@ -81,8 +81,11 @@ Super_R ; c
 L 
  slock
 
-shift + grave
- dwmc setlayoutex {0,1}
+ctrl + l 
+ slock
+
+ctrl + grave
+ dwmc setlayoutex {0,8}
 
 space ; {1-9} 
  dwmc tagex {0-8}
@@ -160,12 +163,13 @@ Q
 d 
  labyrinth -i && python ~/cmdlaunch.py -n "pkill -f" && labyrinth -v 
 
-c ; t
- xdotool keydown "Ctrl+c"
+y
+ xdotool getactivewindow key "ctrl+c"
 
+Y
+ xdotool getactivewindow key "ctrl+C"
 p
- xdotool keydown "Ctrl+v"; \
- sleep 1
+ xdotool getactivewindow key "ctrl+v"
 
 x
  xkill
@@ -186,7 +190,7 @@ v
 
 # [menus]
 
-e 
+{e,slash}
  rofi -show window -kb-element-prev 'k' -kb-element-next 'j' -kb-accept-entry 'o'
 
 colon
@@ -201,7 +205,7 @@ exclam
 # [config] 
 
 comma
- labyrinth -e && labyrinth -I
+ labyrinth -e; labyrinth -I
 
 
 # [applications] 
@@ -209,7 +213,7 @@ comma
 Print
  labyrtool -ss
 
-Shift + Print
+Ctrl + Print
  labyrtool -sf
 
 shift + 4
@@ -251,6 +255,9 @@ backslash ; b
 backslash ; m
  labyrtool -m && labyrinth -I
 
+backslash ; colon
+ rofi -show drun
+
 backslash ; v
  vokoscreenNG
 
@@ -268,9 +275,6 @@ grave ; e
 grave ; a 
  labyrinth -I && labyrtool -b "https://duck.ai" 
 
-grave ; f 
- labyrinth -I && labyrtool -E yazi
-
 grave ; k
  pkill screenkey
 
@@ -279,6 +283,17 @@ backslash ; c
 
 backslash ; d 
  jamesdsp
+
+backslash ; C
+ labyrtool -t "zsh -c cal"
+
+backslash ; p 
+ keepassxc; 
+ labyrinth -I
+
+backslash ; V
+ virtualboxvm --startvm kali;
+ labyrinth -I
 
 grave ; C
  rog-control-center
