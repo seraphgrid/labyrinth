@@ -12,7 +12,7 @@ testing: `ratpoison` -- (04/01/2025 - Not having fun.)
 `dwmc` |
 `warpd` | 
 `python` |
-`hints` 
+`hints` | `shotgun|hacksaw`
 
 
 pro-tip: use `sed` if you want to make similar but sweeping changes to files.
