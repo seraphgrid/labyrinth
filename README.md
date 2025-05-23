@@ -17,6 +17,6 @@ pro-tip: use `sed` if you want to make similar but sweeping changes to files.
 
 ## installation
 
-`cp -rv sxhkdrcs/* [sxhkd_dir]` 
+`cp -rv sxhkdrcs/* $HOME/.config/sxhkd` 
 
 `labyrinth`
