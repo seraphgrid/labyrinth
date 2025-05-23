@@ -51,7 +51,7 @@ alt + o ; {j,k}
  dwmc focusstack {+,-}1
  
 # alt + o ; {h,l}
-#  dwmc setmfact {-,+}0.05
+#  dwmc setmfact {-,+}1.1
  
 # shift + space ; {u,i}
 #  dwmc setcfact {-,+}0.85
@@ -62,7 +62,7 @@ alt + o ; {j,k}
 alt + o ; shift + grave 
  dwmc setlayoutex {0,1}
  
-alt + o ; b 
+alt + o ; F11 
  dwmc togglebar
  
 alt + o ; {1-9} 
@@ -107,7 +107,7 @@ alt + o ; f
 alt + o ; r 
  hints -m scroll
 
-alt + o ; F 
+alt + o ; V 
  warpd --hint
 
 alt + o ; v 
@@ -115,6 +115,13 @@ alt + o ; v
 
 alt + o ; z 
  dwmc zoom
+
+alt + o ; y
+ xdotool getactivewindow key "ctrl+c"
+
+alt + o ; p
+ xdotool getactivewindow key "ctrl+v"
+ 
 
 alt + o ; q 
  dwmc killclient
@@ -142,8 +149,8 @@ alt + o ; colon
 alt + o ; exclam
  python ~/cmdlaunch.py ""
 
-alt + q ; {w,W}
- {labyrweb,torbrowser-launcher} 
+alt + o ; backslash ; {b,B}
+ {labyrtool -b,torbrowser-launcher} 
 
 alt + q ; d
  gnome-dictionary
@@ -163,6 +170,15 @@ alt + q ; m
 
 alt + q ; C 
  equibop 
+
+alt + o ; backslash ; p
+ keepassxc
+
+alt + o ; backslash ; colon
+ rofi -show drun
+
+alt + o ; backslash ; d
+ jamesdsp
 
 # [productivity]  
 # quick productivity functions.
