@@ -62,7 +62,7 @@ case "$1" in
         selection=$(hacksaw -f "-i %i -g %g" -f fullscreen)
         shotgun $selection - | xclip -selection clipboard -t image/png
         
-        option=$(echo -e "No\nYes" | dmenu -p "::save")
+        option=$(echo -e "Yes\nNo" | dmenu -i -p "::save")
         if echo "$option" | grep -q "Yes"; then
             filename=$(echo | dmenu -p "Enter filename:") && \
             filename=${filename:-$(date +%s)} && \
@@ -79,7 +79,7 @@ case "$1" in
         
         shotgun $selection - | xclip -selection clipboard -t image/png
         
-        option=$(echo -e "No\nYes" | dmenu -p "::save")
+        option=$(echo -e "Yes\nNo" | dmenu -i -p "::save")
         
         if echo "$option" | grep -q "Yes"; then
             filename=$(echo | dmenu -p "Enter filename:") && \
