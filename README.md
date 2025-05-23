@@ -10,4 +10,4 @@
 
 ## installation
 
-`cp -rv sxhkdrcs/* $HOME/.config/sxhkd` 
+`cp -rv sxhkdrc/* $HOME/.config/sxhkd` 
