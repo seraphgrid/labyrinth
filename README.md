@@ -2,8 +2,6 @@
 
 `labyrinth` is the keybinding overlay to `widow`.
 
-working: `dwm`
-
 ## dependencies
 
 `sxhkd` |
