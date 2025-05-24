@@ -1,66 +1,209 @@
-Escape
+alt + Tab
+# vim 
  labyrinth -v
 
-i
- labyrinth -i
-
-w
+alt + o ; i  
+# audio
  labyrinth -I
 
-shift + space 
- labyrinth -a 
+alt + o ; v
+# video
+ labyrinth -V
 
-comma
- st -e nvim ~/.config/sxhkd/audio
+alt + o ; shift + space
+ labyrinth -a
 
-{j,k}
- amixer -D pulse sset Master 5%{-,+}
+# [wm]
 
-u
- st -e beet import '~/Music/collection/genre'; \
- st -e beet write; \
- beet update; \
- mpc update 
+alt + o ; Q 
+ dwmc quit
 
-{J,K}
- playerctl --player=mpd,spotify,%any,chromium volume 0.1{-,+}
+alt + o ; L
+ slock 
 
-{h,l}
- playerctl --player=mpd,spotify,%any,chromium position 0.3{-,+}
+alt + {j,k}
+ dwmc focusstack {+,-}1
+ 
+alt + o ; {j,k}
+ dwmc focusstack {+,-}1
+ 
+# alt + o ; {h,l}
+#  dwmc setmfact {-,+}1.1
+ 
+# shift + space ; {u,i}
+#  dwmc setcfact {-,+}0.85
 
-q 
- playerctl --player=mpd,spotify,%any,chromium play-pause
+# shift + space ; o 
+#  dwmc setcfact
 
-{w,b}
- notify-send "$(playerctl --player=mpd,spotify,%any,chromium {next,previous})"
+alt + o ; shift + grave 
+ dwmc setlayoutex {0,1}
+ 
+alt + o ; F11 
+ dwmc togglebar
+ 
+alt + o ; {1-9} 
+ dwmc viewex {0-8}
 
-shift + 4 
- notify-send "$(playerctl metadata)"
+alt + o ; {g ; g,G}
+ dwmc viewex {0,8}
 
-o
- pavucontrol 
+alt + o ; space ; {1-9}
+ dwmc tagex {0-8}
 
-R
+alt + o ; space ; {g ; g,G}
+ dwmc tagex {0,8}
+
+alt + o ; shift + grave
+ dwmc togglemax
+
+alt + o ; c ; w
+ dwmc killclient; rofi -show drun
+
+alt + o ; ctrl + n 
+ dwmc nametag
+
+alt + o ; space ; {j,k}
+ dwmc rotatestack {+,-}1
+
+alt + o ; ctrl + {j,k}
+ dwmc setcfact {+,-}0.45
+
+alt + o ; equal
+ dwmc setcfact 
+
+alt + o ; {l,h}
+ dwmc setmfact {+,-}0.18
+
+alt + f
+ hints
+
+alt + o ; f
+ hints
+
+alt + o ; r 
+ hints -m scroll
+
+alt + o ; V 
+ warpd --hint
+
+alt + o ; v 
+ warpd --normal
+
+alt + o ; z 
+ dwmc zoom
+
+alt + o ; y
+ xdotool getactivewindow key "ctrl+c"
+
+alt + o ; p
+ xdotool getactivewindow key "ctrl+v"
+ 
+alt + o ; q 
+ dwmc killclient
+
+alt + o ; {n,N}  
+ dunstctl {close-all,history-pop}
+
+alt + o ; e
+ rofi -show window -kb-element-prev 'k' -kb-element-next 'j' -kb-accept-entry 'o'
+
+alt + o ; colon 
+ rofi -show drun
+
+# [cmus]
+
+alt + q ; M ; {r,R} 
+ cmus-remote -r
+
+alt + q ; {space} 
+ cmus-remote {-u,-p}
+
+# [tools] 
+
+Print
+ scrot -s '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/'
+
+shift + Print
+ scrot -f '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/'
+
+alt + o ; shift + 4
+ labyrtool -t
+
+alt + q ; e
+ labyrtool -e "~/Music/lyrics/scratch.txt"
+
+alt + q ; f
+ nicotine
+
+alt + q ; d
+ bitwig-studio 
+
+alt + q ; r
  goodvibes
 
-a
- st -e alsamixer
+alt + q ; ctrl + d
+ jamesdsp
 
-A
+#alt + q ; e
+# goodvibes
+
+alt + q ; m 
+ labyrtool -m
+
+alt + q ; c
+ pavucontrol
+
+alt + q ; a
+ labyrtool -E alsamixer
+
+alt + q ; b
+ alacritty -e bluetuith
+
+alt + q ; A 
  friture
 
-B
- blueman-manager
+alt + q ; w 
+ qutebrowser "https://photon-reddit.com/r/Piracy/wiki/megathread/music/"
 
-d 
- jamesdsp 
+# needs special behavior for creating directories blind with prepended paths.
 
-m 
- st -e cmus
+alt + q ; p
+ python ~/cmdlaunch.py "yay -a --noconfirm" 
 
-backslash ; e
- st -e "sudo nvim /usr/share/pipewire/pipewire.conf"
+alt + q ; P
+ python ~/cmdlaunch.py "sudo pacman -S --noconfirm" 
 
-y
- st -e bash -c "yt-dlp --embed-metadata -x --audio-format opus --audio-quality 0 -o '~/Music/collection/rnd/%(title)s.%(ext)s' $(xsel -b)"
+# [yt-dlp] 
+
+alt + q ; y
+ labyrtool -E "yt-dlp --embed-metadata -x --audio-format opus --audio-quality 0 -o '~/music/collection/rnd/%(title)s.%(ext)s' $(xsel -b)"
+
+# [beets]
+
+alt + q ; B ; i
+ labyrtool -E "beet import $HOME/Music/collection/genre"
+
+alt + q ; B ; l  
+ labyrtool -E "beet list"
+
+alt + q ; B ; m 
+ python ~/cmdlaunch.py "beet modify"
+
+alt + q ; B ; M 
+ python ~/cmdlaunch.py "beet move"
  
+alt + q ; B ; u 
+ python ~/cmdlaunch.py -n "beet update"
+
+alt + q ; B ; f 
+ python ~/cmdlaunch.py -n "beet fields"
+
+alt + q ; B ; s
+ python ~/cmdlaunch.py -n "beet stats"
+
+
+# [config]
+
+alt + o ; comma
+ labyrinth -e
