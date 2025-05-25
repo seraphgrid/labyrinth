@@ -1,8 +1,8 @@
 #!/bin/bash
 
 LABYRDIR="$HOME/.labyrinth/"
-LABYRTERM="alacritty -e nvim -c terminal"
-LABYRMU="alacritty -e ncmpcpp"
+LABYRTERM="alacritty"
+LABYRMU="alacritty -e cmus"
 LABYRTERM2='alacritty'
 MUREMOTE="mpc"
 MUDL="yt-dlp --embed-metadata -x --audio-format opus --audio-quality 0 -o '~/Music/collection/rnd/%(title)s.%(ext)s' $(xsel -b)"
@@ -59,8 +59,8 @@ case "$1" in
         ;;
 
     -sf)
-        selection=$(hacksaw -f "-i %i -g %g" -f fullscreen)
-        shotgun $selection - | xclip -selection clipboard -t image/png
+	
+        shotgun - | xclip -selection clipboard -t image/png
         
         option=$(echo -e "Yes\nNo" | dmenu -i -p "::save")
         if echo "$option" | grep -q "Yes"; then
@@ -68,7 +68,7 @@ case "$1" in
             filename=${filename:-$(date +%s)} && \
             mkdir -p ~/Pictures/Screenshots
             
-            shotgun $selection ~/Pictures/Screenshots/"$filename.png"
+            shotgun ~/Pictures/Screenshots/"$filename.png"
         fi
 
         ;;
@@ -89,5 +89,32 @@ case "$1" in
             shotgun $selection ~/Pictures/Screenshots/"$filename.png"
         fi
         ;;
+   -sv)
+
+	dir=~/Videos/wrec/
+	current=$(date +%F_%H-%M-%S)
+	
+	mkdir -p "$dir"
+	
+	hacksaw | {
+	    IFS=+x read -r w h x y
+	
+	    w=$((w + w % 2))
+	    h=$((h + h % 2))
+	
+	    $LABYRTERM -e ffmpeg \
+	        -v 16            \
+	        -r 30            \
+	        -f x11grab       \
+            -s "${w}x${h}"   \
+	        -i ":0.0+$x,$y"  \
+	        -preset slow     \
+	        -c:v h264        \
+	        -pix_fmt yuv420p \
+	        -crf 20          \
+	        "$dir/$current.mp4" 
+
+		}
+	;;
 
 esac 
