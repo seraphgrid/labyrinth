@@ -7,6 +7,7 @@ LABYRMU="alacritty -e cmus"
 LABYRMPC="vimpc"
 LABYRTERM2='xterm'
 MUREMOTE="mpc"
+MUDL="yt-dlp --embed-metadata -x --audio-format opus --audio-quality 0 -o '~/Music/collection/rnd/%(title)s.%(ext)s' $(xsel -b)"
 LABYREDIT="$LABYRTERM2 -e vim"
 LABYRGAL='nomacs'
 LABYRDAW='reaper'
@@ -131,8 +132,7 @@ case "$1" in
    
    -ad)
 
-          $LABYRTERM -e yt-dlp -x --audio-format m4a --add-metadata "$(xsel -b)"
-          mv ~/*.m4a $MUCOL
+          $LABYRTERM -e yt-dlp -x --audio-format m4a --postprocessor-args "-b 320k" --audio-quality 0 --prefer-ffmpeg --add-metadata "$(xsel -b)" --embed-thumbnail -o "$MUCOL/%(title)s.%(ext)s"
 	;; 
 
    -fm)
