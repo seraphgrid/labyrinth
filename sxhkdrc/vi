@@ -7,14 +7,10 @@ alt + w
 alt + o ; Escape
  labyrinth -v
 
-alt + o ; a
-# audio
- labyrinth -a
-
 # res.conf
 alt + o ; shift + space
  labyrinth -I
- 
+
 alt + Tab
 # normal
  labyrinth -v
@@ -59,8 +55,8 @@ alt + o ; {j,k}
 # shift + space ; o 
 #  dwmc setcfact
 
-alt + o ; shift + grave 
- dwmc setlayoutex {0,1}
+alt + o ; ctrl + grave 
+ dwmc setlayoutex {0,8}
  
 alt + o ; F11 
  dwmc togglebar
@@ -92,6 +88,9 @@ alt + o ; space ; {j,k}
 alt + o ; ctrl + {j,k}
  dwmc setcfact {+,-}0.45
 
+alt + o ; {J,K}
+ dwmc {pushdown,pushup}
+
 alt + o ; equal
  dwmc setcfact 
 
@@ -119,6 +118,9 @@ alt + o ; z
 alt + o ; y
  xdotool getactivewindow key "ctrl+c"
 
+alt + o ; Y
+ xdotool getactivewindow key "ctrl+C"
+
 alt + o ; p
  xdotool getactivewindow key "ctrl+v"
  
@@ -131,17 +133,23 @@ alt + o ; {n,N}
 # [tools]
 # [] checking email (mutt)
 
-Print
+Print ; i
  labyrtool -ss
 
-Shift + Print
+Print ; o
  labyrtool -sf
+
+Print ; r
+ labyrtool -sv
+
+Print ; a
+ labyrtool -ar
 
 alt + o ; shift + 4
  labyrtool -t
 
-alt + q ; e
- labyrtool -e 
+alt + r
+ labyrtool -e "note.txt"
 
 alt + o ; colon
  spmenu
@@ -177,20 +185,42 @@ alt + o ; backslash ; p
 alt + o ; backslash ; colon
  rofi -show drun
 
-alt + o ; backslash ; d
- jamesdsp
-
 # [productivity]  
-# quick productivity functions.
 
 alt + q ; d 
  python ~/cmdlaunch.py "python ~/t/t.py --task-dir ~/tasks --list tasks -d" 
 
-# what else do you need to do in writing mode???
-# fast note file
-# character template
+# [system]
 
-# [basic_system]
+alt + o ; backslash ; f 
+ labyrtool -E "ranger"
+
+alt + o ; a ; b
+ labyrtool -E bluetuith
+
+alt + o ; a ; d
+ jamesdsp
+
+alt + o ; a ; a
+ labyrtool -E "pulsemixer"
+
+alt + o ; a ; m
+ labyrtool -E "cmus"
+
+alt + o ; n ; v ; c
+ labyrtool -E "mullvad connect"
+
+alt + o ; n ; v ; d
+ labyrtool -E "mullvad disconnect"
+
+alt + o ; n ; v ; r
+ labyrtool -E "mullvad reconnect"
+
+alt + o ; n ; v ; d
+ labyrtool -E "mullvad disconnect"
+
+alt + o ; {F7,F8}
+ brightnessctl set 55%{-,+}
 
 alt + o ; shift + F8
  redshift {-O 2300,-x}

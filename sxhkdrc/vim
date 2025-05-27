@@ -11,7 +11,7 @@ Super_L ; v
 a
  labyrinth -a
 
-space ; n 
+Super_L ; n 
  labyrinth -n 
 
 Super_L ; y
@@ -93,6 +93,9 @@ space ; {1-9}
 space ; {g ; g,G}
  dwmc tagex {0,8}
 
+{ctrl + a, ctrl + x}
+ dwmc incnmaster {+,-}1
+
 {g ; g,G}
  dwmc viewex {0,8}
 
@@ -164,22 +167,29 @@ d
  labyrinth -i && python ~/cmdlaunch.py -n "pkill -f" && labyrinth -v 
 
 y
- xdotool getactivewindow key "ctrl+c"
+ xdotool getactivewindow keyup "ctrl+c"
 
 Y
- xdotool getactivewindow key "ctrl+C"
+ xdotool getactivewindow keyup "ctrl+C"
+
 p
- xdotool getactivewindow key "ctrl+v"
+ xdotool getactivewindow keyup "ctrl+v"
 
 x
  xkill
+
+R
+ reboot
+
+S
+ shutdown now
 
 # warpd
 
 f
  hints 
 
-F
+r
  hints -m scroll
 
 V
@@ -207,14 +217,16 @@ exclam
 comma
  labyrinth -e; labyrinth -I
 
-
 # [applications] 
 
-Print
+Print ; i
  labyrtool -ss
 
-Ctrl + Print
+Print ; o
  labyrtool -sf
+
+Print ; v
+ vokoscreenNG
 
 shift + 4
  labyrtool -t
@@ -232,7 +244,7 @@ backslash ; comma
  labyrtool -e "$HOME/.widow/config.h"
 
 backslash ; period
- labyrtool -E "cd $HOME/.widow/ && make -j4 && sudo make clean install"
+ labyrtool -E "cd $HOME/.widow/.src && make -j4 && sudo make clean install"
 
 backslash ; e 
  labyrtool -e
@@ -247,7 +259,7 @@ backslash ; P
  labyrtool -E glances
 
 backslash ; f
- labyrtool -E ranger
+ labyrtool -fm
 
 backslash ; b
  labyrinth -I && labyrtool -b 

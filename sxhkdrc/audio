@@ -121,17 +121,26 @@ alt + q ; {space}
 
 # [tools] 
 
-Print
- scrot -s '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/'
+Print ; i
+ labyrtool -ss
 
-shift + Print
- scrot -f '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/'
+Print ; o
+ labyrtool -sf
+
+Print ; r
+ labyrtool -sv
+
+Print ; a
+ labyrtool -ar
 
 alt + o ; shift + 4
  labyrtool -t
 
 alt + q ; e
  labyrtool -e "~/Music/lyrics/scratch.txt"
+
+alt + o ; backslash ; b
+ labyrtool -b
 
 alt + q ; f
  nicotine
@@ -177,12 +186,15 @@ alt + q ; P
 # [yt-dlp] 
 
 alt + q ; y
- labyrtool -E "yt-dlp --embed-metadata -x --audio-format opus --audio-quality 0 -o '~/music/collection/rnd/%(title)s.%(ext)s' $(xsel -b)"
+ labyrtool -E "scdl -l $(xsel -b) --path ~/Music/collection/rnd/"
 
 # [beets]
 
 alt + q ; B ; i
  labyrtool -E "beet import $HOME/Music/collection/genre"
+
+alt + q ; B ; I
+ labyrtool -E "beet import $HOME/Music/collection/rnd"
 
 alt + q ; B ; l  
  labyrtool -E "beet list"
