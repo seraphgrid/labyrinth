@@ -131,13 +131,10 @@ case "$1" in
    -ad)
 
 	  URL="$(xsel -b)"
-          $LABYRTERM -e yt-dlp -x $URL \
-          --audio-format m4a \ 
-          --postprocessor-args "-b 320k" \ 
-          --audio-quality 0 \
-          --prefer-ffmpeg \
-          --add-metadata  \
-          --embed-thumbnail \ 
+          $LABYRTERM -e yt-dlp -x "$URL" \
+          --audio-format m4a \
+          --audio-quality 0 --prefer-ffmpeg \
+          --add-metadata --embed-thumbnail \
           -o "$MUCOL%(title)s.%(ext)s"
 
 	;; 
