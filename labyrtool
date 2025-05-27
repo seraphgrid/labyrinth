@@ -100,7 +100,6 @@ case "$1" in
     	current=$(date +%F_%H-%M-%S)
     	
     	mkdir -p "$dir"
-    	
     	hacksaw | {
     	    IFS=+x read -r w h x y
     	
@@ -131,8 +130,24 @@ case "$1" in
    
    -ad)
 
-          $LABYRTERM -e yt-dlp -x --audio-format m4a --postprocessor-args "-b 320k" --audio-quality 0 --prefer-ffmpeg --add-metadata "$(xsel -b)" --embed-thumbnail -o "$MUCOL/%(title)s.%(ext)s"
+	  URL=$(xsel -b)
+          $LABYRTERM -e yt-dlp -x \
+          --audio-format m4a \ 
+          --postprocessor-args "-b 320k" \ 
+          --audio-quality 0 \
+          --prefer-ffmpeg \
+          --add-metadata \ 
+          "$URL" \
+          --embed-thumbnail \ 
+          -o "$MUCOL%(title)s.%(ext)s"
+
 	;; 
+
+   -bk)
+         sudo cp -rv /usr/bin/labyrtool $WIDIR/.yr/
+         sudo cp -rv /usr/bin/labyrinth $WIDIR/.yr/
+
+        ;;
 
    -fm)
        $LABYRFM $1
