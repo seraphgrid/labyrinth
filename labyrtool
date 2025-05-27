@@ -7,7 +7,6 @@ LABYRMU="alacritty -e cmus"
 LABYRMPC="vimpc"
 LABYRTERM2='xterm'
 MUREMOTE="mpc"
-MUDL="yt-dlp --embed-metadata -x --audio-format opus --audio-quality 0 -o '~/Music/collection/rnd/%(title)s.%(ext)s' $(xsel -b)"
 LABYREDIT="$LABYRTERM2 -e vim"
 LABYRGAL='nomacs'
 LABYRDAW='reaper'
