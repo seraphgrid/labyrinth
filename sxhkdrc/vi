@@ -163,6 +163,9 @@ alt + o ; backslash ; {b,B}
 alt + q ; d
  gnome-dictionary
 
+alt + q ; y
+ flatpak run io.freetubeapp.FreeTube
+
 alt + q ; r
  goodvibes
 

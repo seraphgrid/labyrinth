@@ -267,47 +267,11 @@ backslash ; v
 backslash ; k
  screenkey
 
-grave ; e 
- labyrtool -e "$HOME/emilia.txt"
-
 # need actual marking functionality.
 # $ometing need$ to allow u to mark a currently open file into the nromal mode config for being launched with grave then the letter.
 
 # [bookmarks]
 
-grave ; a 
- labyrinth -I && labyrtool -b "https://duck.ai" 
-
-grave ; k
- pkill screenkey
-
-backslash ; c
- equibop 
-
-backslash ; d 
- jamesdsp
-
-backslash ; C
- labyrtool -t "zsh -c cal"
-
-backslash ; p 
- keepassxc; 
- labyrinth -I
-
-backslash ; V
- virtualboxvm --startvm kali;
- labyrinth -I
-
-grave ; C
- rog-control-center
-
-grave ; g
- labyrterm "-e nethack"
-
 grave + period
  labyrtool -E "rm -rf ~/.local/share/recently-used.xbel"
 
-grave ; y
- st -e "yt-dlp -f bestaudio --extract-audio --audio-format
- mp3 --audio-quality 0 -o '~/Music/collection/rnd/%(title)s.%(e
-xt)s' $(xsel -b)"
