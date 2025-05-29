@@ -2,6 +2,10 @@ alt + Tab
 # vim 
  labyrinth -v
 
+Super_L
+# vim 
+ labyrinth -v
+
 alt + o ; i  
 # audio
  labyrinth -I
@@ -74,9 +78,6 @@ alt + o ; equal
 
 alt + o ; {l,h}
  dwmc setmfact {+,-}0.18
-
-alt + f
- hints
 
 alt + o ; f
  hints
@@ -151,22 +152,25 @@ alt + q ; d
 alt + q ; r
  goodvibes
 
+alt + q ; d
+ jamesdsp -t
+
 alt + q ; ctrl + d
  jamesdsp
 
-#alt + q ; e
-# goodvibes
+alt + q ; R
+ goodvibes
 
 alt + q ; m 
  labyrtool -m
 
-alt + q ; c
- pavucontrol
+alt + q ; c ; p
+ labyrtool -E pulsemixer
 
-alt + q ; a
+alt + q ; c ; a
  labyrtool -E alsamixer
 
-alt + q ; b
+alt + q ; c ; b
  alacritty -e bluetuith
 
 alt + q ; A 
@@ -186,7 +190,7 @@ alt + q ; P
 # [yt-dlp] 
 
 alt + q ; y
- labyrtool -E "scdl -l $(xsel -b) --path ~/Music/collection/rnd/"
+ labyrtool -ad
 
 # [beets]
 
@@ -213,7 +217,6 @@ alt + q ; B ; f
 
 alt + q ; B ; s
  python ~/cmdlaunch.py -n "beet stats"
-
 
 # [config]
 

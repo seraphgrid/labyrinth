@@ -85,7 +85,7 @@ ctrl + l
  slock
 
 ctrl + grave
- dwmc setlayoutex {0,8}
+ dwmc setlayoutex {8,0}
 
 space ; {1-9} 
  dwmc tagex {0-8}
@@ -165,15 +165,6 @@ Q
 
 d 
  labyrinth -i && python ~/cmdlaunch.py -n "pkill -f" && labyrinth -v 
-
-y
- xdotool getactivewindow keyup "ctrl+c"
-
-Y
- xdotool getactivewindow keyup "ctrl+C"
-
-p
- xdotool getactivewindow keyup "ctrl+v"
 
 x
  xkill
@@ -258,8 +249,8 @@ backslash ; g
 backslash ; P
  labyrtool -E glances
 
-backslash ; f
- labyrtool -fm
+o
+ labyrinth -I
 
 backslash ; b
  labyrinth -I && labyrtool -b 
