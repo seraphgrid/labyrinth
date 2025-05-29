@@ -2,21 +2,21 @@
 
 
 LABYRDIR="$HOME/.labyrinth/"
-LABYRTERM="alacritty"
-LABYRMU="alacritty -e cmus"
-LABYRMPC="vimpc"
-LABYRTERM2='xterm'
-MUREMOTE="mpc"
-LABYREDIT="$LABYRTERM2 -e vim"
-LABYRGAL='nomacs'
-LABYRDAW='reaper'
-LABYRDAW2='bitwig-studio'
-LABYRWEB='qutebrowser'
-LABYRWAL='nitrogen'
+LABYRTERM="xterm"
+LABYRMU=""
+LABYRMPC=""
+LABYRTERM2=''
+MUREMOTE=""
+LABYREDIT=""
+LABYRGAL=''
+LABYRDAW=''
+LABYRDAW2=''
+LABYRWEB=''
+LABYRWAL=''
 LABYRMODE=$(cat ~/.config/sxhkd/current_mode)
-LABYRFM="vifm"
-WIDIR="$HOME/.widow"
-MUCOL="$HOME/Music/collection/rnd/"
+LABYRFM=""
+WIDIR=""
+MUCOL="
 
 wideps() { # ignore this 
     case "$1" in
