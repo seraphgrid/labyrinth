@@ -43,7 +43,7 @@ case "$1" in
 
     -E)
 
-        exec $LABYRTERM2 -e $2 &
+        exec $LABYRTERM -e $2 &
         ;;
 
     -t)
@@ -142,8 +142,14 @@ case "$1" in
    -bk)
          sudo cp -rv /usr/bin/labyrtool $WIDIR/.yr/
          sudo cp -rv /usr/bin/labyrinth $WIDIR/.yr/
+	 cp -rv ~/.config/sxhkd/* $WIDIR/.xk/
 
         ;;
+   --edit)
+        
+       sudo -e /usr/bin/labyrtool
+
+       ;;
 
    -fm)
        $LABYRFM $1
