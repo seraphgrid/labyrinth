@@ -18,6 +18,84 @@ LABYRFM="vifm"
 WIDIR="$HOME/.widow"
 MUCOL="$HOME/Music/collection/rnd/"
 
+wideps() { # ignore this 
+    case "$1" in
+        "Gentoo")
+            emerge -av sys-devel/base sys-devel/gcc sys-devel/make sys-devel/autoconf sys-devel/automake x11-libs/libX11 x11-libs/libXft x11-libs/libXinerama x11-base/xorg-server x11-apps/xinit
+            ;;
+        "Debian")
+            sudo apt install build-essential libx11-dev libxft-dev libxinerama-dev xorg-dev xinit
+            ;;
+        "Fedora")
+            sudo dnf groupinstall "Development Tools" && sudo dnf install libX11-devel libXft-devel libXinerama-devel xorg-x11-server-Xorg xorg-x11-xinit
+            ;;
+        "Alpine")
+            apk add build-base libx11-dev libxft-dev libxinerama-dev xorg-server xinit
+            ;;
+        "Slackware")
+            slackpkg install gcc make autoconf automake libX11 libXft libXinerama xorg-server xinit
+            ;;
+        "OpenBSD")
+            pkg_add gmake autoconf automake libX11 libXft libXinerama xorg-server xinit
+            ;;
+        "FreeBSD")
+            sudo pkg install gcc gmake autoconf automake libX11 libXft libXinerama xorg-server xorg-xinit
+            ;;
+        "Void")
+            sudo xbps-install -S base-devel libX11-devel libXft-devel libXinerama-devel xorg-server xorg-xinit
+            ;;
+        "NixOS")
+            nix-env -iA nixos.gcc nixos.gnumake nixos.autoconf nixos.automake nixos.libX11 nixos.libXft nixos.libXinerama nixos.xorg.xorgserver nixos.xorg.xinit
+            ;;
+        "openSUSE")
+            sudo zypper install -t pattern devel_basis && sudo zypper install libX11-devel libXft-devel libXinerama-devel xorg-x11-server xorg-x11-xinit
+            ;;
+        *)
+            echo "Unsupported distribution or package manager."
+            exit 1
+            ;;
+    esac
+}
+
+wixt() {
+    case "$1" in
+        "Gentoo")
+            emerge -av sys-devel/base sys-devel/gcc sys-devel/make sys-devel/autoconf sys-devel/automake x11-libs/libX11 x11-libs/libXft x11-libs/libXinerama x11-base/xorg-server x11-apps/xinit
+            ;;
+        "Debian")
+            sudo apt install build-essential libx11-dev libxft-dev libxinerama-dev xorg-dev xinit
+            ;;
+        "Fedora")
+            sudo dnf groupinstall "Development Tools" && sudo dnf install libX11-devel libXft-devel libXinerama-devel xorg-x11-server-Xorg xorg-x11-xinit
+            ;;
+        "Alpine")
+            apk add build-base libx11-dev libxft-dev libxinerama-dev xorg-server xinit
+            ;;
+        "Slackware")
+            slackpkg install gcc make autoconf automake libX11 libXft libXinerama xorg-server xinit
+            ;;
+        "OpenBSD")
+            pkg_add gmake autoconf automake libX11 libXft libXinerama xorg-server xinit
+            ;;
+        "FreeBSD")
+            sudo pkg install gcc gmake autoconf automake libX11 libXft libXinerama xorg-server xorg-xinit
+            ;;
+        "Void")
+            sudo xbps-install -S base-devel libX11-devel libXft-devel libXinerama-devel xorg-server xorg-xinit
+            ;;
+        "NixOS")
+            nix-env -iA nixos.gcc nixos.gnumake nixos.autoconf nixos.automake nixos.libX11 nixos.libXft nixos.libXinerama nixos.xorg.xorgserver nixos.xorg.xinit
+            ;;
+        "openSUSE")
+            sudo zypper install -t pattern devel_basis && sudo zypper install libX11-devel libXft-devel libXinerama-devel xorg-x11-server xorg-x11-xinit
+            ;;
+        *)
+            echo "Unsupported distribution or package manager."
+            exit 1
+            ;;
+    esac
+}
+
 case "$1" in
 
     -g) 
@@ -140,18 +218,74 @@ case "$1" in
 	;; 
 
    -bk)
-         sudo cp -rv /usr/bin/labyrtool $WIDIR/.yr/
-         sudo cp -rv /usr/bin/labyrinth $WIDIR/.yr/
+         sudo cp -rv /.local/bin/labyrtool $WIDIR/.yr/
+         sudo cp -rv /.local/bin/labyrinth $WIDIR/.yr/
 	 cp -rv ~/.config/sxhkd/* $WIDIR/.xk/
 
         ;;
+
    --edit)
         
        sudo -e /usr/bin/labyrtool
 
        ;;
 
+   --install)
+
+	chmod +x $WIDIR/.yr/*
+        cp -rv $WIDIR/.yr/* $HOME/.local/bin/
+	cp -rv $WIDIR/.xk/* $HOME/.config/sxhkd/
+        cp -rv $WIDIR/.xt/spmenu $HOME/.local/bin
+        cp -rv $WIDIR/.xt/warpd.config $HOME/.config/warpd/config
+        cp -rv $WIDIR/.xt/hints.config.json $HOME/.config/hints/config.json
+	sudo cp -rv $WIDIR/.xt/dwmbar/modules/keymode /usr/share/dwmbar/modules/
+        cd $WIDIR/.src/
+        make -j4
+        sudo make clean install
+        cd $WIDIR
+        sudo cp -rv .src/widow.desktop /usr/share/xsessions/
+        cd $HOME
+	if [ -f /etc/os-release ]; then
+	    . /etc/os-release
+	    case "$ID" in
+	        "gentoo")
+	            wideps "Gentoo"
+	            ;;
+	        "debian")
+	            wideps "Debian"
+	            ;;
+	        "fedora")
+	            wideps "Fedora"
+	            ;;
+	        "alpine")
+	            wideps "Alpine"
+	            ;;
+	        "slackware")
+	            wideps "Slackware"
+	            ;;
+	        "openbsd")
+	            wideps "OpenBSD"
+	            ;;
+	        "freebsd")
+	            wideps "FreeBSD"
+	            ;;
+	        "void")
+	            wideps "Void"
+	            ;;
+	        "nixos")
+	            wideps "NixOS"
+	            ;;
+	        "opensuse-leap" | "opensuse-tumbleweed")
+	            wideps "openSUSE"
+	            ;;
+	    esac
+       fi
+
+	;;
+
    -fm)
-       $LABYRFM $1
+       $LABYRTERM $LABYRFM $1
        ;;
+ 
 esac 
+
