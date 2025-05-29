@@ -6,7 +6,7 @@
 
 `sxhkd` |
 `warpd` | 
-`hints` | `shotgun*hacksaw`
+`hints` | `shotgun*hacksaw` | `dwmc`
 
 ## installation
 
