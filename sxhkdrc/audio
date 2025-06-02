@@ -17,6 +17,9 @@ alt + o ; v
 alt + o ; shift + space
  labyrinth -a
 
+alt + w
+ labyrinth -v
+
 # [wm]
 
 alt + o ; Q 
