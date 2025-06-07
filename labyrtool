@@ -14,7 +14,7 @@ LABYRDAW2='bitwig-studio'
 LABYRWEB='qutebrowser'
 LABYRWAL='nitrogen'
 LABYRMODE=$(cat ~/.config/sxhkd/current_mode)
-LABYRFM="vifm"
+LABYRFM="ranger"
 WIDIR="$HOME/.widow"
 MUCOL="$HOME/Music/collection/rnd/"
 
@@ -175,7 +175,10 @@ case "$1" in
     	        -c:v h264        \
     	        -pix_fmt yuv420p \
     	        -crf 20          \
-    	        "$dir/$current.mp4" 
+    	        -f alsa          \
+		-i default       \
+    	        "$dir/$current.mp4" && \
+                ffmpeg -f alsa -i default -af "afftdn=nf=-75"
     		}
 	;;
 
@@ -187,17 +190,6 @@ case "$1" in
 
     	;;
    
-   -ad)
-
-	  URL="$(xsel -b)"
-          $LABYRTERM -e yt-dlp -x "$URL" \
-          --audio-format m4a \
-          --audio-quality 0 --prefer-ffmpeg \
-          --add-metadata --embed-thumbnail \
-          -o "$MUCOL%(title)s.%(ext)s"
-
-	;; 
-
    -bk)
          sudo cp -rv /.local/bin/labyrtool $WIDIR/.yr/
          sudo cp -rv /.local/bin/labyrinth $WIDIR/.yr/
@@ -211,73 +203,45 @@ case "$1" in
 
        ;;
 
-   --install)
+#   --install)
+#	
+#       	 if [ -f /etc/os-release ]; then
+#	     . /etc/os-release
+#	     case "$ID_LIKE" in
+#	         "gentoo")
+#	             wideps "Gentoo"
+#	             ;;
+#	         "debian")
+#	             wideps "Debian"
+#	             ;;
+#	         "fedora")
+#	             wideps "Fedora"
+#	             ;;
+#	         "alpine")
+#	             wideps "Alpine"
+#	             ;;
+#	         "slackware")
+#	             wideps "Slackware"
+#	             ;;
+#	         "openbsd")
+#	             wideps "OpenBSD"
+#	             ;;
+#	         "freebsd")
+#	             wideps "FreeBSD"
+#	             ;;
+#	         "void")
+#	             wideps "Void"
+#	             ;;
+#	         "nixos")
+#	             wideps "NixOS"
+#	             ;;
+#	         "opensuse-leap" | "opensuse-tumbleweed")
+#	             wideps "openSUSE"
+#	 	    ;;
+#	         "arch" | "endeavouros" | "cachyos" )
+#	             wideps "Arch"
+#	             ;;
+#	     esac
+#        fi
 	
-       	 if [ -f /etc/os-release ]; then
-	     . /etc/os-release
-	     case "$ID_LIKE" in
-	         "gentoo")
-	             wideps "Gentoo"
-	             ;;
-	         "debian")
-	             wideps "Debian"
-	             ;;
-	         "fedora")
-	             wideps "Fedora"
-	             ;;
-	         "alpine")
-	             wideps "Alpine"
-	             ;;
-	         "slackware")
-	             wideps "Slackware"
-	             ;;
-	         "openbsd")
-	             wideps "OpenBSD"
-	             ;;
-	         "freebsd")
-	             wideps "FreeBSD"
-	             ;;
-	         "void")
-	             wideps "Void"
-	             ;;
-	         "nixos")
-	             wideps "NixOS"
-	             ;;
-	         "opensuse-leap" | "opensuse-tumbleweed")
-	             wideps "openSUSE"
-	 	    ;;
-	         "arch" | "endeavouros" | "cachyos" )
-	             wideps "Arch"
-	             ;;
-	     esac
-        fi
-
-	wget https://github.com/seraphgrid/widow/releases/download/indev/widow.7z -P ~/.wisrc
-        cd $HOME
-	7z x ~/.wisrc/widow.7z
-	rm -rf ~/.wisrc
-        cd ~/.widow/.src/
-        make -j4
-        sudo make clean install
-        cd ~/.widow/.xt
-	cp -rv dunstrc ~/.config/dunst/
-	git clone https://github.com/tonymugen/dwmBar
-	cd $WIDIR/.xt/dwmBar
-	make
-	sudo make install
-	cd $WIDIR
-        sudo cp -rv .src/widow.desktop /usr/share/xsessions/
-        cp -rv $WIDIR/.xt/spmenu $HOME/.local/bin/
-        cp -rv $WIDIR/.xt/warpd.config $HOME/.config/warpd/config
-        cp -rv $WIDIR/.xt/hints.config.json $HOME/.config/hints/config.json
-	sudo cp -rv $WIDIR/.xt/dwmbar/modules/keymode /usr/share/dwmbar/modules/
-	sudo cp -rv $WIDIR/.xt/dwmbar/config /usr/share/dwmbar/
-        cd $HOME
-	;;
-
-   -fm)
-       $LABYRTERM $LABYRFM $1
-       ;;
- 
 esac 
-
